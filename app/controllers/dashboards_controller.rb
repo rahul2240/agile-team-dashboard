@@ -5,15 +5,15 @@ class DashboardsController < ApplicationController
     @absences = Absence.current
     @meetings = Meeting.today
     @this_week = Meeting.today
-    @pull_requests = github_pull_requests
+    @pull_requests = github_pull_requests('openSUSE/open-build-service')
   end
 
-  def github_pull_requests
-    result = open('https://api.github.com/repos/openSUSE/open-build-service/pulls')
-    content = result.read
-    body = JSON.parse(content)
-    if body.kind_of? Array
-      pull_requests = []
+  private
+
+  def github_pull_requests(repository)
+    body = JSON.parse(open("https://api.github.com/repos/#{repository}/pulls").read)
+    pull_requests = []
+    if body.kind_of?(Array)
       body.each do |pr|
         pull_requests << PullRequest.new(
           number: pr['number'],
