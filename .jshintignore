@@ -1,0 +1,3 @@
+app/assets/javascripts/cable.js
+vendor/assets/javascripts/*.min.js
+vendor/bundle/
