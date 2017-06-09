@@ -1,5 +1,6 @@
+# Sprints controller
 class SprintsController < ApplicationController
-  before_action :set_sprint, only: %i{show edit update destroy}
+  before_action :set_sprint, only: %i[show edit update destroy]
 
   def index
     @sprints = Sprint.all
@@ -17,8 +18,7 @@ class SprintsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @sprint.update_attributes(permitted_params)

@@ -1,10 +1,10 @@
 class Absence < Event
   validates :start_date, :end_date, :event_type, presence: true
 
-  scope :current, -> { where('start_date <= :today AND end_date >= :today', {today: Date.today}) }
+  scope :current, (-> { where('start_date <= :today AND end_date >= :today', today: Time.zone.today) })
   # Contants
   #
-  TYPES = %i[workshop vacation sick other]
+  TYPES = %i[workshop vacation sick other].freeze
 end
 
 # == Schema Information

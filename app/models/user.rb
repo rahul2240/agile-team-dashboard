@@ -2,15 +2,17 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable,
-    :rememberable, :trackable, :validatable
+         :rememberable, :trackable, :validatable
 
   has_many :absences
   has_many :events
 
   validates :name, :location, presence: true
 
-  scope :in_vacation, -> { joins(:vacations)
-                           .where('vacations.start_date <= :today AND vacations.end_date >= :today', {today: Date.today})}
+  scope :in_vacation, (-> do
+    joins(:vacations)
+      .where('vacations.start_date <= :today AND vacations.end_date >= :today', today: Time.zone.today)
+  end)
 
   def fullname
     [name, surname].join(' ')

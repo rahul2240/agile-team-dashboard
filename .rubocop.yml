@@ -15,6 +15,10 @@ AllCops:
 
 #################### Style ###############################
 
+# Disable file name checks
+Style/FileName:
+  Enabled: false
+
 # Align the elements of a hash literal if they span more than one line
 Style/AlignHash:
   Enabled: true
@@ -112,16 +116,34 @@ Style/WordArray:
 Style/ZeroLengthPredicate:
   Enabled: true
 
+# Disabling the lambda cop
+Style/Lambda:
+  Enabled: false
+
+# Prefer square brackets as literal delimiters
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%i": '[]'
+    "%w": '[]'
 #################### Metrics ###############################
+# Disabling Assingment Branch Condition cop
+Metrics/AbcSize:
+  Enabled: false
 
 # Avoid deep blocks nesting
 Metrics/BlockNesting:
   Max: 4
 
-# Avoid writing classes that are more than 300 lines 
+# Avoid writing classes that are more than 300 lines
 Metrics/ClassLength:
   Max: 300
 
+# Don't mind about blocks being big
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 20
 #################### Lint ###############################
 
 # Wrap your assignment in condition if you mean it, otherwise it is most likely equality check
@@ -195,3 +217,8 @@ Rails/Delegate:
 # Identifies places where gsub can be replaced by tr or delete.
 Performance/StringReplacement:
   Enabled: true
+
+#################### Documentation ###############################
+
+Documentation:
+  Enabled: false
