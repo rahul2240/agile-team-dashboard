@@ -1,4 +1,4 @@
-[![Coverage Status](https://img.shields.io/codecov/c/github/openSUSE/agile-team-dashboard.svg)](https://codecov.io/gh/openSUSE/agile-team-dashboard)
+[![codecov](https://codecov.io/gh/openSUSE/agile-team-dashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/openSUSE/agile-team-dashboard)
 
 # README
 
