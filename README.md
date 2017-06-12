@@ -1,3 +1,5 @@
+[![Coverage Status](https://img.shields.io/codecov/c/github/openSUSE/agile-team-dashboard.svg)](https://codecov.io/gh/openSUSE/agile-team-dashboard)
+
 # README
 
 This README would normally document whatever steps are necessary to get the

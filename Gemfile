@@ -56,6 +56,9 @@ group :test do
   gem 'poltergeist'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'timecop'
+  # for test coverage reports
+  gem 'codecov', require: false
+  gem 'simplecov', require: false  
 end
 
 group :development, :test do
