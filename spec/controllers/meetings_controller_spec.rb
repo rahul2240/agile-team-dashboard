@@ -5,7 +5,7 @@ RSpec.describe MeetingsController, type: :controller do
   let(:standup) { create :standup }
 
   before do
-    login_as miyagi
+    sign_in miyagi
   end
 
   describe 'GET #index' do
@@ -14,8 +14,8 @@ RSpec.describe MeetingsController, type: :controller do
         get :index
       end
 
-      it { expect(assigns(:active_meetings).count).to eq(Meeting.active.count) }
-      it { expect(assigns(:finished_meetings).count).to eq(Meeting.finished.count) }
+      it { expect(assigns(:active_meetings).size).to eq(Meeting.active.count) }
+      it { expect(assigns(:finished_meetings).size).to eq(Meeting.finished.count) }
     end
   end
 

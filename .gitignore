@@ -29,3 +29,5 @@ public/uploads/
 
 # Vagrant
 .vagrant/
+
+vendor/bundle
