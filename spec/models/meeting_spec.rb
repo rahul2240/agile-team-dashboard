@@ -44,30 +44,4 @@ RSpec.describe Meeting, type: :model do
       end
     end
   end
-
-  describe '#full_data' do
-    context 'when Mr. Miyagi have a standup' do
-      it 'he needs his green headband' do
-        expect(standup.full_data).to eq('standup - awesome standup')
-      end
-    end
-
-    context 'when Mr. Miyagi have a planning' do
-      it 'he needs his orange headband' do
-        expect(planning.full_data).to eq('planning - awesome planning')
-      end
-    end
-
-    context 'when Mr. Miyagi have a retrospective' do
-      it 'he needs his rose headband' do
-        expect(retrospective.full_data).to eq('retrospective - awesome retrospective')
-      end
-    end
-
-    context 'when Mr. Miyagi have a workshop' do
-      it 'he needs his black headband' do
-        expect(workshop.full_data).to eq('workshop - awesome workshop')
-      end
-    end
-  end
 end

@@ -1,9 +1,9 @@
 class Event < ApplicationRecord
   belongs_to :user, optional: true
 
-  scope :in_month, ->(start_date) {
+  scope :in_month, (->(start_date) do
     where('start_date >= ?', start_date)
-  }
+  end)
 
   # Contants
   #
@@ -16,12 +16,12 @@ class Event < ApplicationRecord
     workshop: '#920076',
     meeting: '#bf4469',
     other: '#c25975'
-  }
+  }.freeze
 
   # Instance methods
   #
   def title
-    [user.try(:github_login), event_type].reject { |e| e.blank? }.join(' - ')
+    [user.try(:github_login), event_type].reject(&:blank?).join(' - ')
   end
 
   def all_day?

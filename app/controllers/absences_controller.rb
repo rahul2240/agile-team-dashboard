@@ -1,5 +1,6 @@
+# Absence controller
 class AbsencesController < ApplicationController
-  before_action :set_absence, only: %i{show edit update destroy}
+  before_action :set_absence, only: %i[show edit update destroy]
 
   def index
     @absences = current_user.absences
@@ -17,8 +18,7 @@ class AbsencesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @absence.update_attributes(permitted_params)

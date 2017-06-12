@@ -1,7 +1,7 @@
 class Sprint < ApplicationRecord
   validates :start_date, :end_date, presence: true
 
-  scope :current, -> { where('start_date <= :today AND end_date >= :today', {today: Date.today}).first }
+  scope :current, (-> { find_by('start_date <= :today AND end_date >= :today', today: Time.zone.today) })
 end
 
 # == Schema Information

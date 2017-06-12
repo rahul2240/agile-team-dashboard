@@ -3,9 +3,9 @@ class EventType < ActiveHash::Base
   has_many :events
 
   self.data = [
-    {id: 1, name: "Meeting"},
-    {id: 2, name: "Workshop"},
-    {id: 3, name: "Vacation"},
-    {id: 4, name: "Sick"}
+    { id: 1, name: 'Meeting' },
+    { id: 2, name: 'Workshop' },
+    { id: 3, name: 'Vacation' },
+    { id: 4, name: 'Sick' }
   ]
 end

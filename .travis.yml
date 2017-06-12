@@ -1,0 +1,29 @@
+sudo: required
+dist: trusty
+language: ruby
+cache: bundler
+rvm:
+  - 2.3.1
+before_install:
+  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+  - "echo `phantomjs -v`"
+  - npm install -g jshint
+before_script:
+  - cp config/database.yml.example config/database.yml
+  - psql -c 'create role bsteam with superuser createdb login;' -U postgres
+  - psql -c "alter role bsteam with password 'opensuse';" -U postgres
+  - psql -c 'create database dashboard_test;' -U postgres
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+script:
+  - "./travis_script.sh $TEST_SUITE"
+env:
+  - TEST_SUITE=rspec
+  - TEST_SUITE=linters
+matrix:
+  fast_finish: true
+services:
+  - postgresql
+notifications:
+  email:
+    on_success: change
+    on_failure: change
