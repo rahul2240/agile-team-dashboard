@@ -1,6 +1,6 @@
 [![codecov](https://codecov.io/gh/openSUSE/agile-team-dashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/openSUSE/agile-team-dashboard)
 
-# README
+# README for the Agile Team Dashboard project
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
