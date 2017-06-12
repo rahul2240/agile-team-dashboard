@@ -10,6 +10,8 @@ before_install:
   - npm install -g jshint
 before_script:
   - cp config/database.yml.example config/database.yml
+  - psql -c 'create role bsteam with superuser createdb login;' -U postgres
+  - psql -c "alter role bsteam with password 'opensuse';" -U postgres
   - psql -c 'create database dashboard_test;' -U postgres
   - RAILS_ENV=test bundle exec rake db:migrate --trace
 script:

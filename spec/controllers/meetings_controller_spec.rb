@@ -14,7 +14,8 @@ RSpec.describe MeetingsController, type: :controller do
         get :index
       end
 
-      it { expect(assigns(:meetings).count).to eq(Meeting.count) }
+      it { expect(assigns(:active_meetings).count).to eq(Meeting.active.count) }
+      it { expect(assigns(:finished_meetings).count).to eq(Meeting.finished.count) }
     end
   end
 
