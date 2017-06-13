@@ -3,17 +3,26 @@
 echo 'solver.allowVendorChange = true' >> /etc/zypp/zypp.conf
 
 # packages
-zypper -q ar -f http://download.opensuse.org/repositories/OBS:/Server:/Unstable/openSUSE_42.2/OBS:Server:Unstable.repo
-zypper -q --gpg-auto-import-keys --non-interactive ref
-
+zypper -q ref
 zypper -q -n in -t pattern devel_basis
 zypper -q -n in libopenssl-devel readline-devel \
     postgresql94-server postgresql94-devel libxml2-devel libxslt-devel
 
-zypper -q -n in ruby2.4-devel ruby2.4-rubygem-bundler ruby2.4-rubygem-nokogiri
+# rbenv
+# Based on https://en.opensuse.org/User:Tsu2/Install_Ruby#When_do_I_need_to_install_Ruby.3F
+zypper -q -n in automake gdbm-devel libyaml-devel ncurses-devel readline-devel zlib-devel
 
-#postgresql
+su - vagrant -c "git clone git://github.com/sstephenson/rbenv.git .rbenv"
+su - vagrant -c "git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build"
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> /etc/profile.d/rbenv.sh
+echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh
+su - vagrant -c "source /etc/profile"
 
+su - vagrant -c "rbenv install 2.4.0"
+su - vagrant -c "rbenv rehash"
+su - vagrant -c "rbenv global 2.4.0"
+
+# postgresql
 echo -e "\nsetting up postgresl...\n"
 systemctl start postgresql
 systemctl enable postgresql
@@ -31,6 +40,8 @@ echo -e "\ndisabling versioned gem binary names...\n"
 echo 'install: --no-format-executable' >> /etc/gemrc
 
 echo -e "\ninstalling your bundle...\n"
+su - vagrant -c "gem install bundler"
+su - vagrant -c "bundle config build.nokogiri '--use-system-libraries'"
 su - vagrant -c "cd /vagrant/; bundle install"
 
 # Configure the database if it isn't
