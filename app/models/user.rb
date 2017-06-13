@@ -1,13 +1,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :recoverable,
-         :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :recoverable, :registerable,
+    :rememberable, :trackable, :validatable
 
   has_many :absences
   has_many :events
 
-  validates :name, :location, presence: true
+  validates :name, presence: true
 
   scope :in_vacation, (-> do
     joins(:vacations)
