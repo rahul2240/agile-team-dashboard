@@ -14,4 +14,13 @@ module ApplicationHelper
       [content_tag(:i, '', class: 'github icon'), login].safe_join('')
     end
   end
+
+  def avatar
+    if current_user.github_login
+      url = "https://github.com/#{current_user.github_login}.png?size=200"
+      image_tag url, class: 'ui fluid circular image'
+    else
+      image_tag Identicon.data_url_for(current_user.email), class: 'ui fluid circular image'
+    end
+  end
 end

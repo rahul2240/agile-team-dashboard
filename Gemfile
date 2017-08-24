@@ -41,6 +41,8 @@ gem 'momentjs-rails'
 gem 'active_hash'
 gem 'country_select'
 
+gem 'identicon'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -58,7 +60,7 @@ group :test do
   gem 'timecop'
   # for test coverage reports
   gem 'codecov', require: false
-  gem 'simplecov', require: false  
+  gem 'simplecov', require: false
 end
 
 group :development, :test do
