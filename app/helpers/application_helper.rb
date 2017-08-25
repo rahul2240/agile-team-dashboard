@@ -11,7 +11,7 @@ module ApplicationHelper
   def github_link_to(login)
     url = "https://github.com/#{login}"
     link_to url, target: :_blank do
-      [content_tag(:i, '', class: 'github icon'), login].safe_join('')
+      safe_join([content_tag(:i, '', class: 'github icon'), login])
     end
   end
 end
