@@ -2,8 +2,7 @@
   - if current_user
     .item
       .title.avatar
-        - url = "https://github.com/#{current_user.github_login}.png?size=200"
-        = image_tag url, class: 'ui fluid circular image'
+        = avatar
   - else
     = link_to 'Login', new_user_session_path
   .item
