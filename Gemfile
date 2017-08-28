@@ -40,6 +40,7 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'active_hash'
 gem 'country_select'
+gem 'flag-icon-sass'
 
 gem 'identicon'
 
