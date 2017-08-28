@@ -1,10 +1,12 @@
 $(document).on "turbolinks:load", ->
   $('div.calendar').calendar()
   $('.calendar_range_start').calendar
-    endCalendar: $('.calendar_range_end')
+    endCalendar: $('.calendar_range_end'),
+    type: 'date'
 
   $('.calendar_range_end').calendar
-    startCalendar: $('.calendar_range_start')
+    startCalendar: $('.calendar_range_start'),
+    type: 'date'
 
   $('.ui.accordion').accordion()
   $('.ui.dropdown').dropdown
