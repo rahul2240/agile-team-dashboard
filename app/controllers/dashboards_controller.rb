@@ -6,6 +6,9 @@ class DashboardsController < ApplicationController
     @meetings = Meeting.today
     @this_week = Meeting.today
     @pull_requests = github_pull_requests('openSUSE/open-build-service')
+    @public_holidays = Holidays.between(Time.zone.today.beginning_of_week,
+                                        Time.zone.today.end_of_week,
+                                        %i[es gb cz])
   end
 
   private

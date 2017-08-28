@@ -31,6 +31,20 @@
                       .description= absence.description
             .ui.bottom.attached.header
 
+        - if @public_holidays.present?
+          .column
+            h3.ui.top.attached.header
+              | Public Holidays of this week
+            .ui.divided.list.attached.segment
+              - @public_holidays.each do |public_holiday|
+                .item
+                  .content
+                    .header
+                      = flag_icon(public_holiday[:regions].first)
+                      = " #{public_holiday[:date]}"
+                      .description= public_holiday[:name]
+            .ui.bottom.attached.header
+
     .column
       - if @pull_requests.present?
         .eight.wide.column
