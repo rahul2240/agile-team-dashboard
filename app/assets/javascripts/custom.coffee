@@ -1,12 +1,16 @@
 $(document).on "turbolinks:load", ->
-  $('div.calendar').calendar()
+  $('div.calendar').calendar
+    firstDayOfWeek: 1
+
   $('.calendar_range_start').calendar
     endCalendar: $('.calendar_range_end'),
-    type: 'date'
+    type: 'date',
+    firstDayOfWeek: 1
 
   $('.calendar_range_end').calendar
     startCalendar: $('.calendar_range_start'),
-    type: 'date'
+    type: 'date',
+    firstDayOfWeek: 1
 
   $('.ui.accordion').accordion()
   $('.ui.dropdown').dropdown
