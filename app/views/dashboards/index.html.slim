@@ -20,15 +20,15 @@
             .ui.divided.list.attached.segment
               - @absences.each do |absence|
                 .item
-                  - url = "https://github.com/#{absence.user.try(:github_login)}.png?size=40"
-                  = gravatar url
+                  = avatar(absence.user, size: 40, gravatar: true)
                   .content
                     .header
-                      = absence.user.email
-                      span
-                        = " | until #{absence.end_date}"
-                    - if absence.description.present?
-                      .description= absence.description
+                      = absence.user.name
+                    .header
+                      - if absence.description.present?
+                        = truncate(absence.description, length: 30)
+                      - else
+                        = absence.event_type
             .ui.bottom.attached.header
 
     .column

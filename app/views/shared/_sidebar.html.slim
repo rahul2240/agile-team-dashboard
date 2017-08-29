@@ -2,7 +2,7 @@
   - if current_user
     .item
       .title.avatar
-        = avatar
+        = avatar(current_user, size: 130)
   - else
     = link_to 'Login', new_user_session_path
   .item
