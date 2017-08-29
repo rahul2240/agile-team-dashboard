@@ -9,18 +9,20 @@ module ApplicationHelper
   end
 
   def github_link_to(login)
-    url = "https://github.com/#{login}"
-    link_to url, target: :_blank do
+    link_to "https://github.com/#{login}", target: :_blank do
       safe_join([content_tag(:i, '', class: 'github icon'), login])
     end
   end
 
-  def avatar
-    if current_user.github_login
-      url = "https://github.com/#{current_user.github_login}.png?size=200"
-      image_tag url, class: 'ui fluid circular image'
-    else
-      image_tag Identicon.data_url_for(current_user.email), class: 'ui fluid circular image'
-    end
+  def avatar(user, size: 200, gravatar: false)
+    klass = gravatar ? 'ui avatar image mini' : 'ui fluid circular image'
+
+    url = if user.github_login
+            "https://github.com/#{user.github_login}.png?size=#{size}"
+          else
+            Identicon.data_url_for(user.email)
+          end
+
+    image_tag url, class: klass
   end
 end
