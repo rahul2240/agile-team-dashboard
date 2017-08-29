@@ -4,7 +4,6 @@ class DashboardsController < ApplicationController
     @sprint = Sprint.current
     @absences = Absence.current
     @meetings = Meeting.today
-    @this_week = Meeting.today
     @pull_requests = github_pull_requests('openSUSE/open-build-service')
   end
 
