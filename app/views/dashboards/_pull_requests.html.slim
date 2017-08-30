@@ -1,0 +1,12 @@
+- pull_requests.each do |pr|
+    .item
+      = gravatar pr.gravatar
+      .content
+        .header
+          = link_to pr.url, target: :_blank do
+            = "#{pr.number} - #{pr.title} "
+            - pr.labels.each do |label|
+              .ui.tag.mini.label style="background-color:##{label['color']};color:#{pr.font_color_for(label)};"
+                = label['name']
+        .meta
+          = "#{pr.author} - #{pr.created_at}"
