@@ -1,16 +1,18 @@
 .ui.stackable.column.grid
   .two.column.row
     .column
-      .ui.stackable.two.column.grid
+      .ui.stackable.three.column.grid
         - if @meetings
           .column
-            h3.ui.top.attached.header Today meettings
-            .ui.divided.list.attached.segment
+            h3.ui.top.attached.header Today meetings
+            .ui.relaxed.divided.list.attached.segment
               - @meetings.each do |meeting|
                 .item
                   .content
                     .header
-                      = "#{meeting.start_date.strftime("%H:%M")} - #{meeting.event_type} - #{meeting.name} in #{meeting.location}"
+                      = meeting.start_date.strftime("%H:%M")
+                      br
+                      = "#{meeting.name} in #{meeting.location}"
             .ui.bottom.attached.header
 
         - if @absences

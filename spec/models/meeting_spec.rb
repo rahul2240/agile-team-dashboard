@@ -10,7 +10,7 @@ RSpec.describe Meeting, type: :model do
       it { expect(Meeting::TYPES).to include(cons) }
     end
 
-    it { expect(Meeting::TYPES.count).to eq(6) }
+    it { expect(Meeting::TYPES.count).to eq(7) }
   end
 
   let(:miyagi) { create :miyagi }

@@ -1,6 +1,8 @@
 .ui.twelve.column.centered.grid
   .ui.six.wide.column.segment.login
     = simple_form_for(@sprint, html: { class: 'ui form '}) do |f|
+      .field
+        = f.input :name
       .two.fields
         = f.input :start_date, as: :string,
                                wrapper_html: { class: 'calendar_range_start' }

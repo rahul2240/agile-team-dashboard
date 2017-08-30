@@ -7,9 +7,9 @@
         = f.input :event_type, collection: Absence::TYPES
       .two.fields
         = f.input :start_date, as: :string,
-                               wrapper_html: { class: 'calendar_range_start' }
+                               wrapper_html: { class: 'calendar' }
         = f.input :end_date, as: :string,
-                             wrapper_html: { class: 'calendar_range_end' }
+                             wrapper_html: { class: 'calendar' }
       = f.input :description, input_html: { rows: 3, cols: 40 }
       .ui.right.floated.buttons
         = link_to 'Cancel', absences_path, class: 'ui button'

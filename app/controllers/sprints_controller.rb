@@ -46,6 +46,6 @@ class SprintsController < ApplicationController
   end
 
   def permitted_params
-    params.require(:sprint).permit(:start_date, :end_date)
+    params.require(:sprint).permit(:name, :start_date, :end_date)
   end
 end

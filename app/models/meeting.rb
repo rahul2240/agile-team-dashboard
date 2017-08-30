@@ -10,7 +10,7 @@ class Meeting < Event
 
   # Contants
   #
-  TYPES = %i[standup planning retrospective meeting workshop other].freeze
+  TYPES = %i[standup planning review retrospective meeting workshop other].freeze
 end
 
 # == Schema Information
