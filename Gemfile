@@ -71,6 +71,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.47.1', require: false
   # for property tests
   gem 'rantly'
+  gem 'faker'
 end
 
 group :development do
