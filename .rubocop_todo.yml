@@ -23,14 +23,3 @@ Metrics/MethodLength:
 # Offense count: 23
 Style/Documentation:
   Enabled: false
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: line_count_dependent, lambda, literal
-Style/Lambda:
-  Exclude:
-    - 'app/models/event.rb'
-    - 'app/models/meeting.rb'
-    - 'app/models/user.rb'
-

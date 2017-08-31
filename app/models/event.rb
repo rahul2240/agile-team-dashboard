@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user, optional: true
 
-  scope :in_month, (->(start_date) do
+  scope :in_month, (lambda do |start_date|
     where('start_date >= ?', start_date)
   end)
 
