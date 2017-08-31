@@ -31,3 +31,6 @@ public/uploads/
 .vagrant/
 
 vendor/bundle
+
+# Coverage
+coverage/
