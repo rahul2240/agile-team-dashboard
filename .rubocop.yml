@@ -15,6 +15,9 @@ AllCops:
 
 #################### Metrics ###############################
 
+Metrics/AbcSize:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
