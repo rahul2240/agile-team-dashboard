@@ -10,15 +10,15 @@ class CreateMeetings
   def self.create_standups(start_date, end_date)
     (start_date + 1...end_date).each do |date|
       if date.on_weekday?
-        Meeting.create(name: 'Standup', event_type: :standup, start_date: datetime(date, '11:00'),
-                       end_date: datetime(date, '11:30'), location: 'mumble')
+        Meeting.create!(name: 'Standup', event_type: :standup, start_date: datetime(date, '11:00'),
+                        end_date: datetime(date, '11:30'), location: 'mumble')
       end
     end
   end
 
   def self.create_plannings(date)
-    Meeting.create(name: 'Planning part 1', event_type: :planning, start_date: datetime(date, '11:00'),
-                   end_date: datetime(date, '12:00'), location: 'gotomeeting')
+    Meeting.create!(name: 'Planning part 1', event_type: :planning, start_date: datetime(date, '11:00'),
+                    end_date: datetime(date, '12:00'), location: 'gotomeeting')
     Meeting.create(name: 'Planning part 2', event_type: :planning, start_date: datetime(date, '13:30'),
                    end_date: datetime(date, '15:30'), location: 'gotomeeting')
   end
