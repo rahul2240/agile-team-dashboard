@@ -37,7 +37,14 @@ Vagrant.configure(2) do |config|
   # Network
   #
   config.vm.network "private_network", type: "dhcp"
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  config.vm.network "forwarded_port", guest: 3000, host: 3001
+
+  # Use 1Gb of RAM for Vagrant box (otherwise bundle will go to swap)
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ['modifyvm', :id, '--memory', 2048]
+    vb.customize ['modifyvm', :id, '--cpus', 2]
+    vb.destroy_unused_network_interfaces = true
+  end
 
   #
   # Misc
