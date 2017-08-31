@@ -15,6 +15,10 @@ AllCops:
 
 #################### Metrics ###############################
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
 Metrics/LineLength:
   Max: 120
   
