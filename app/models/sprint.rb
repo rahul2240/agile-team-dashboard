@@ -3,9 +3,11 @@ class Sprint < ApplicationRecord
 
   validate :no_weekend_day
 
-  scope :current, (-> { find_by('start_date <= :today AND end_date >= :today', today: Time.zone.today) })
-
   after_create :create_meetings
+
+  def self.current
+    find_by('start_date <= :today AND end_date >= :today', today: Time.zone.today)
+  end
 
   private
 
