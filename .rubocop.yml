@@ -13,6 +13,16 @@ AllCops:
     - 'config/**/*'
     - 'bin/*'
 
+#################### Style #################################
+
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*'
+
+Style/MultilineBlockChain:
+  Exclude:
+    - 'spec/**/*'
+
 #################### Metrics ###############################
 
 Metrics/AbcSize:
