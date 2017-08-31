@@ -17,7 +17,7 @@
 /tmp
 
 config/database.yml
-config/secret.yml
+config/secrets.yml
 .ruby-gemset
 *.swp
 

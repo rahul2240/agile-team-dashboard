@@ -48,19 +48,19 @@
             .ui.bottom.attached.header
 
     .column
-      - if @pull_requests.present?
-        .eight.wide.column
-          h3.ui.top.attached.header
-            strong= @pull_requests.count
-            |  Opened Pull Requests
-          .ui.relaxed.divided.list.attached.segment.pull_requests
-            - @pull_requests.reverse_each do |pr|
-                .item
-                  = gravatar pr.gravatar
-                  .content
-                    .header
-                      = "#{pr.author} - #{pr.created_at}"
-                    .header
-                      = link_to pr.url, target: :_blank do
-                        = "#{pr.number} - #{pr.title}"
-          .ui.bottom.attached.header
+      .eight.wide.column
+        h3.ui.top.attached.header
+          .ui.secondary.menu
+            a.item.active data-tab= "webui"
+              .ui.red.horizontal.label= @webui_pull_requests.count
+              | WebUI Pull Requests
+            a.item data-tab= "backend"
+              .ui.teal.horizontal.label= @backend_pull_requests.count
+              ' Backend Pull Requests
+        .ui.bottom.relaxed.divided.list.attached.tab.segment.active.pull_requests data-tab= "webui"
+          = render partial: 'pull_requests', locals: { pull_requests: @webui_pull_requests }
+        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= "backend"
+          = render partial: 'pull_requests', locals: { pull_requests: @backend_pull_requests }
+        .ui.bottom.attached.header
+javascript:
+  $('.menu .item').tab();
