@@ -1,22 +1,21 @@
 class Sprint < ApplicationRecord
   validates :start_date, :end_date, presence: true
-
-  validate :no_weekend_day
-
-  scope :current, (-> { find_by('start_date <= :today AND end_date >= :today', today: Time.zone.today) })
+  validate :starts_on_weekday, :ends_on_weekday
 
   after_create :create_meetings
 
-  private
-
-  def no_weekend_day
-    return unless weekend?(start_date.try(:cwday)) || weekend?(end_date.try(:cwday))
-
-    errors[:base] << 'The dates of the sprint could not start/end on weekend'
+  def self.current
+    find_by('start_date <= :today AND end_date >= :today', today: Time.zone.today)
   end
 
-  def weekend?(date)
-    date.in?([0, 6, 7])
+  private
+
+  def starts_on_weekday
+    errors[:start_date] << 'can not be on weekend' if start_date.try(:on_weekend?)
+  end
+
+  def ends_on_weekday
+    errors[:end_date] << 'can not be on weekend' if end_date.try(:on_weekend?)
   end
 
   def create_meetings

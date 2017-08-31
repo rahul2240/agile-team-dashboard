@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user, optional: true
 
-  scope :in_month, (->(start_date) do
+  scope :in_month, (lambda do |start_date|
     where('start_date >= ?', start_date)
   end)
 
@@ -25,7 +25,7 @@ class Event < ApplicationRecord
   end
 
   def all_day?
-    %w[vacation sick].include?(event_type)
+    %w(vacation sick).include?(event_type)
   end
 
   def color

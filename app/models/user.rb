@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  scope :in_vacation, (-> do
+  scope :in_vacation, (lambda do
     joins(:vacations)
       .where('vacations.start_date <= :today AND vacations.end_date >= :today', today: Time.zone.today)
   end)

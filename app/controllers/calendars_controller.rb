@@ -22,7 +22,7 @@ class CalendarsController < ApplicationController
                         allDay: event.all_day?)
     end
     public_holidays =
-      Holidays.between(start_date, end_date, %i[es gb cz]).map do |holiday|
+      Holidays.between(start_date, end_date, %i(es gb cz)).map do |holiday|
         CalendarEvent.new(
           title: "#{holiday[:regions].first.try(:to_s)} - #{holiday[:name]}",
           start: holiday[:date],
