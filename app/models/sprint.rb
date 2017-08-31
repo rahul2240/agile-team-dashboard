@@ -1,7 +1,6 @@
 class Sprint < ApplicationRecord
   validates :start_date, :end_date, presence: true
-
-  validate :no_weekend_day
+  validate :starts_on_weekday, :ends_on_weekday
 
   after_create :create_meetings
 
@@ -11,10 +10,12 @@ class Sprint < ApplicationRecord
 
   private
 
-  def no_weekend_day
-    return unless start_date.on_weekend? || end_date.on_weekend?
+  def starts_on_weekday
+    errors[:start_date] << 'can not be on weekend' if start_date.try(:on_weekend?)
+  end
 
-    errors[:base] << 'The dates of the sprint could not start/end on weekend'
+  def ends_on_weekday
+    errors[:end_date] << 'can not be on weekend' if end_date.try(:on_weekend?)
   end
 
   def create_meetings
