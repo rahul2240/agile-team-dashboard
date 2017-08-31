@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe MeetingsController, type: :controller do
-  let(:miyagi) { create :miyagi }
+  let(:user) { create :user }
   let(:standup) { create :standup }
 
   before do
-    sign_in miyagi
+    sign_in user
   end
 
   describe 'GET #index' do
