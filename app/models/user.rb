@@ -14,6 +14,12 @@ class User < ApplicationRecord
       .where('vacations.start_date <= :today AND vacations.end_date >= :today', today: Time.zone.today)
   end)
 
+  def self.birthdays_of_this_week
+    select do |user|
+      user.birthday? && (Time.zone.today..Time.zone.today + 6).cover?(user.birthday.change(year: Time.zone.now.year))
+    end
+  end
+
   def fullname
     [name, surname].join(' ')
   end
