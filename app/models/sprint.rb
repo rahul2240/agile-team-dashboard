@@ -12,13 +12,9 @@ class Sprint < ApplicationRecord
   private
 
   def no_weekend_day
-    return unless weekend?(start_date.try(:cwday)) || weekend?(end_date.try(:cwday))
+    return unless start_date.on_weekend? || end_date.on_weekend?
 
     errors[:base] << 'The dates of the sprint could not start/end on weekend'
-  end
-
-  def weekend?(date)
-    date.in?([0, 6, 7])
   end
 
   def create_meetings
