@@ -1,6 +1,6 @@
 # Meetings controller
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: %i[show edit update destroy]
+  before_action :set_meeting, only: %i(show edit update destroy)
 
   def index
     @active_meetings = Meeting.active

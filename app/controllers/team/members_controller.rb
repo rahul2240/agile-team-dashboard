@@ -1,6 +1,6 @@
 module Team
   class MembersController < ApplicationController
-    before_action :set_member, only: %i[show edit update destroy]
+    before_action :set_member, only: %i(show edit update destroy)
 
     def index
       @members = User.all

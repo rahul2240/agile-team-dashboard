@@ -4,7 +4,7 @@ class Absence < Event
   scope :current, (-> { where('start_date <= :today AND end_date >= :today', today: Time.zone.today) })
   # Contants
   #
-  TYPES = %i[workshop vacation sick other].freeze
+  TYPES = %i(workshop vacation sick other).freeze
 end
 
 # == Schema Information

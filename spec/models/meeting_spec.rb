@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Meeting, type: :model do
-  %i[start_date end_date event_type location].each do |attr|
+  %i(start_date end_date event_type location).each do |attr|
     it { should validate_presence_of(attr) }
   end
 
   describe '#TYPES' do
-    %i[standup planning retrospective meeting workshop other].each do |cons|
+    %i(standup planning retrospective meeting workshop other).each do |cons|
       it { expect(Meeting::TYPES).to include(cons) }
     end
 
