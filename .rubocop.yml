@@ -12,3 +12,8 @@ AllCops:
     - 'bundle/**/*'
     - 'config/**/*'
     - 'bin/*'
+
+#################### Metrics ###############################
+
+Metrics/LineLength:
+  Max: 120
