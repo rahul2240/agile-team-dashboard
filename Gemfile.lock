@@ -224,6 +224,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.2.1)
     rake (11.3.0)
+    rantly (1.1.0)
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
@@ -357,6 +358,7 @@ DEPENDENCIES
   pundit
   rails (~> 5.0.1)
   rails-controller-testing
+  rantly
   rspec
   rspec-rails
   rubocop (~> 0.47.1)

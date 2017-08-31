@@ -12,6 +12,8 @@ require 'database_cleaner'
 require 'simplecov'
 # for tracking test coverage
 require 'codecov'
+# for property tests
+require 'rantly/rspec_extensions'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
