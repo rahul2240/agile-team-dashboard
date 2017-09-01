@@ -4,3 +4,9 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+unless Rails.env.production?
+  require 'slim_lint/rake_task'
+
+  SlimLint::RakeTask.new
+end

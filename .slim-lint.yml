@@ -1,0 +1,9 @@
+exclude:
+  - 'vendor/**/*'
+
+linters:
+  LineLength:
+    max: 120
+
+  RuboCop:
+    enabled: false

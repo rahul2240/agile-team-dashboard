@@ -72,6 +72,7 @@ group :development, :test do
   # for property tests
   gem 'rantly'
   gem 'faker'
+  gem 'slim_lint'
 end
 
 group :development do
