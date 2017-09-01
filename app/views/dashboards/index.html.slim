@@ -65,17 +65,50 @@
     .column
       .eight.wide.column
         h3.ui.top.attached.header
+          ' Github Pull Requests
+          .ui.hidden.divider
           .ui.secondary.menu
             a.item.active data-tab= "webui"
-              .ui.red.horizontal.label= @webui_pull_requests.count
-              | WebUI Pull Requests
+              .ui.blue.horizontal.label= @pull_requests[:webui].count
+              | WebUI
+            .ui.flowing.popup.top.left.transition.hidden
+              a href="https://github.com/openSUSE/open-build-service/pulls" target='_blank'
+                ' open-build-service
             a.item data-tab= "backend"
-              .ui.teal.horizontal.label= @backend_pull_requests.count
-              ' Backend Pull Requests
+              .ui.teal.horizontal.label= @pull_requests[:backend].count
+              ' Backend
+            .ui.flowing.popup.top.left.transition.hidden
+              a href="https://github.com/openSUSE/open-build-service/pulls" target='_blank'
+                ' open-build-service
+            a.item data-tab= "documentation"
+              .ui.black.horizontal.label= @pull_requests[:documentation].count
+              ' Documentation
+            .ui.flowing.popup.top.left.transition.hidden
+              a href="https://github.com/openSUSE/obs-docu/pulls" target='_blank'
+                ' obs-docu
+            a.item data-tab= "landing"
+              .ui.purple.horizontal.label= @pull_requests[:landing].count
+              ' Landing
+            .ui.flowing.popup.top.left.transition.hidden
+              a href="https://github.com/openSUSE/obs-landing/pulls" target='_blank'
+                ' obs-landing
+            a.item data-tab= "dashboard"
+              .ui.olive.horizontal.label= @pull_requests[:dashboard].count
+              ' Dashboard
+            .ui.flowing.popup.top.left.transition.hidden
+              a href="https://github.com/openSUSE/agile-team-dashboard/pulls" target='_blank'
+                ' agile-team-dashboard
         .ui.bottom.relaxed.divided.list.attached.tab.segment.active.pull_requests data-tab= "webui"
-          = render partial: 'pull_requests', locals: { pull_requests: @webui_pull_requests }
+          = render partial: 'pull_requests', locals: { pull_requests: @pull_requests[:webui] }
         .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= "backend"
-          = render partial: 'pull_requests', locals: { pull_requests: @backend_pull_requests }
+          = render partial: 'pull_requests', locals: { pull_requests: @pull_requests[:backend] }
+        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= "documentation"
+          = render partial: 'pull_requests', locals: { pull_requests: @pull_requests[:documentation] }
+        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= "landing"
+          = render partial: 'pull_requests', locals: { pull_requests: @pull_requests[:landing] }
+        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= "dashboard"
+          = render partial: 'pull_requests', locals: { pull_requests: @pull_requests[:dashboard] }
         .ui.bottom.attached.header
 javascript:
   $('.menu .item').tab();
+  $('.menu .item').popup({hoverable: true});
