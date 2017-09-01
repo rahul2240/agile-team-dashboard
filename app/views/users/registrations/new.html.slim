@@ -2,7 +2,8 @@
   .ui.six.wide.column.segment.login
     h2
       | Sign up
-    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'ui form' }) do |f|
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
+                      html: { class: 'ui form' }) do |f|
       = devise_error_messages!
       = f.input :email, autofocus: true
       = f.input :name
