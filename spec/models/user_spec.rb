@@ -7,11 +7,11 @@ RSpec.describe User, type: :model do
 
   let(:user) { create :user }
 
-  context '#fullname' do
+  describe '#fullname' do
     it { expect(user.fullname).to eq("#{user.name} #{user.surname}") }
   end
 
-  context '#self.birthdays_of_this_week' do
+  describe '#self.birthdays_of_this_week' do
     let!(:user1) { create(:user, birthday: 20.years.ago) }
     let!(:user2) { create(:user, birthday: 35.years.ago + 13.days) }
     let!(:user3) { create(:user, birthday: 18.years.ago + 3.days) }
