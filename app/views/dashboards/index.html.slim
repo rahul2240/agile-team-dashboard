@@ -47,6 +47,21 @@
                       .description= public_holiday[:name]
             .ui.bottom.attached.header
 
+        - if @birthdays.present?
+          .column
+            h3.ui.top.attached.header
+              | Birthdays
+            .ui.divided.list.attached.segment
+              - @birthdays.each do |user|
+                .item
+                  = avatar(user, size: 40, gravatar: true)
+                  .content
+                    .header
+                      = user.name
+                    .header
+                      = user.birthday.strftime("%d-%m-%Y")
+            .ui.bottom.attached.header
+
     .column
       .eight.wide.column
         h3.ui.top.attached.header
