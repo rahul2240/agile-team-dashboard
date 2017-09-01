@@ -28,6 +28,7 @@ echo 'install: --no-format-executable' >> /etc/gemrc
 
 echo -e "\ninstalling your bundle...\n"
 gem.ruby2.4 install bundler
+gem.ruby2.4 install foreman
 su - vagrant -c "cd /vagrant/; bundle install"
 
 # Configure the database if it isn't
@@ -44,4 +45,4 @@ else
 fi
 
 echo -e "\nProvisioning of your TEAM DASHBOARD rails app done!"
-echo -e "To start your development TEAM DASHBOARD run: vagrant exec rails s -b 0.0.0.0\n"
+echo -e "To start your development TEAM DASHBOARD run: vagrant exec foreman start\n"

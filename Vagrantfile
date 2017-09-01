@@ -37,7 +37,7 @@ Vagrant.configure(2) do |config|
   # Network
   #
   config.vm.network "private_network", type: "dhcp"
-  config.vm.network "forwarded_port", guest: 3000, host: 3001
+  config.vm.network "forwarded_port", guest: 3001, host: 3001
 
   # Use 1Gb of RAM for Vagrant box (otherwise bundle will go to swap)
   config.vm.provider :virtualbox do |vb|
