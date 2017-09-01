@@ -17,7 +17,7 @@ class PullRequest
 
   def self.from_github_repository(repository)
     Rails.cache.fetch("github_pull_requests_for_#{repository}", expires_in: 10.minutes) do
-      Rails.logger.info('>>> Consulting GitHub PRs......')
+      Rails.logger.info(">>> Consulting GitHub PRs for #{repository}......")
       pull_requests = github_api_get("https://api.github.com/repos/#{repository}/pulls")
       return [] unless pull_requests.is_a?(Array)
       pull_requests.map { |pull_request| new_from_github(repository, pull_request) }
