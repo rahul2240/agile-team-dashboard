@@ -12,12 +12,24 @@ RSpec.describe User, type: :model do
   end
 
   describe '#self.birthdays_of_this_week' do
-    let!(:user1) { create(:user, birthday: 20.years.ago) }
-    let!(:user2) { create(:user, birthday: 35.years.ago + 13.days) }
-    let!(:user3) { create(:user, birthday: 18.years.ago + 3.days) }
-    let!(:user4) { create(:user, birthday: 57.years.ago + 6.days) }
-    let!(:user5) { create(:user, birthday: 31.years.ago - 1.day) }
-
-    it { expect(User.birthdays_of_this_week).to eq([user1, user3, user4]) }
+    it 'with some users with and without birthday' do
+      property_of {
+        birthdays_this_week = []
+        birthdays_other_week = []
+        range(0, 10).times { birthdays_this_week << range(16, 70).years.ago + range(0, 6).days }
+        range(0, 10).times { birthdays_other_week << range(16, 70).years.ago + range(7, 364).days }
+        [birthdays_this_week, birthdays_other_week]
+      }.check(1) { |birthdays_this_week, birthdays_other_week|
+        users_with_birthday = []
+        birthdays_this_week.each do |birthday|
+          users_with_birthday << create(:user, birthday: birthday)
+        end
+        users_without_birthday = []
+        birthdays_other_week.each do |birthday|
+          users_without_birthday << create(:user, birthday: birthday)
+        end
+        expect(User.birthdays_of_this_week).to eq(users_with_birthday)
+      }
+    end
   end
 end
