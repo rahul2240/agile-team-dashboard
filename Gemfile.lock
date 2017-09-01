@@ -244,6 +244,7 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redcarpet (3.4.0)
     ref (2.0.0)
     refinements (4.2.0)
     responders (2.4.0)
@@ -398,6 +399,7 @@ DEPENDENCIES
   rails
   rails-controller-testing
   rantly
+  redcarpet
   rspec
   rspec-rails
   rubocop (~> 0.47.1)
