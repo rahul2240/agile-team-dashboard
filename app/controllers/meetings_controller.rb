@@ -11,7 +11,7 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(permitted_params)
     if @meeting.save
-      flash[:notice] = 'perfect'
+      flash[:success] = 'Meeting was successfully created'
       redirect_to meetings_path
     else
       flash.now[:error] = 'ohhhhhhhh'
@@ -23,7 +23,7 @@ class MeetingsController < ApplicationController
 
   def update
     if @meeting.update_attributes(permitted_params)
-      flash[:notice] = 'perfect'
+      flash[:success] = 'Meeting was successfully updated'
       redirect_to meetings_path
     else
       flash.now[:error] = 'ohhhhhhhh'
@@ -33,7 +33,7 @@ class MeetingsController < ApplicationController
 
   def destroy
     if @meeting.destroy
-      flash[:notice] = 'perfect'
+      flash[:success] = 'Meeting was successfully deleted'
     else
       flash[:error] = 'ohhhhhhhh'
     end

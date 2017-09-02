@@ -10,7 +10,7 @@ class AbsencesController < ApplicationController
   def create
     @absence = Absence.new(permitted_params)
     if @absence.save
-      flash[:notice] = 'perfect'
+      flash[:success] = 'Absence was successfully created'
       redirect_to absences_path
     else
       flash.now[:error] = 'ohhhhhhhh'
@@ -22,7 +22,7 @@ class AbsencesController < ApplicationController
 
   def update
     if @absence.update_attributes(permitted_params)
-      flash[:notice] = 'perfect'
+      flash[:success] = 'Absence was successfully updated'
       redirect_to absences_path
     else
       flash.now[:error] = 'ohhhhhhhh'
@@ -32,7 +32,7 @@ class AbsencesController < ApplicationController
 
   def destroy
     if @absence.destroy
-      flash[:notice] = 'perfect'
+      flash[:success] = 'Absence was successfully deleted'
     else
       flash[:error] = 'ohhhhhhhh'
     end

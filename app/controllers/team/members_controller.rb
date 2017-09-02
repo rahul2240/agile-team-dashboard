@@ -13,7 +13,7 @@ module Team
     def create
       @member = User.new(permitted_params)
       if @member.save
-        flash[:notice] = 'perfect'
+        flash[:success] = 'User was successfully created'
         redirect_to team_members_path
       else
         flash.now[:error] = 'ohhhhhhhh'
@@ -29,7 +29,7 @@ module Team
 
     def update
       if @member.update_attributes(permitted_params)
-        flash[:notice] = 'perfect'
+        flash[:success] = 'User was successfully created'
         redirect_to team_members_path
       else
         flash.now[:error] = 'ohhhhhhhh'
@@ -39,7 +39,7 @@ module Team
 
     def destroy
       if @member.destroy
-        flash[:notice] = 'perfect'
+        flash[:success] = 'User was successfully created'
       else
         flash[:error] = 'ohhhhhhhh'
       end

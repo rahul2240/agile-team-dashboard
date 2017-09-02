@@ -10,10 +10,10 @@ class SprintsController < ApplicationController
   def create
     @sprint = Sprint.new(permitted_params)
     if @sprint.save
-      flash[:notice] = 'perfect'
+      flash[:success] = 'Sprint was successfully created'
       redirect_to sprints_path
     else
-      flash.now[:error] = 'ohhhhhhhh'
+      flash.now[:error] = ['Something happens:', @sprint.errors.full_messages]
       render :new
     end
   end
@@ -22,7 +22,7 @@ class SprintsController < ApplicationController
 
   def update
     if @sprint.update_attributes(permitted_params)
-      flash[:notice] = 'perfect'
+      flash[:success] = 'Sprint was successfully updated'
       redirect_to sprints_path
     else
       flash.now[:error] = 'ohhhhhhhh'
@@ -32,7 +32,7 @@ class SprintsController < ApplicationController
 
   def destroy
     if @sprint.destroy
-      flash[:notice] = 'perfect'
+      flash[:success] = 'Sprint was successfully deleted'
     else
       flash[:error] = 'ohhhhhhhh'
     end
