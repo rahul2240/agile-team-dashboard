@@ -15,6 +15,7 @@ case $TEST_SUITE in
   linters)
     bundle exec rubocop -Dc .rubocop.yml
     bundle exec slim-lint .
+    bundle exec rake git_cop
     jshint .
     ;;
   rspec)

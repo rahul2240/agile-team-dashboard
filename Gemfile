@@ -62,6 +62,8 @@ group :test do
   # for test coverage reports
   gem 'codecov', require: false
   gem 'simplecov', require: false
+  # for checking commit messages
+  gem 'git-cop'
 end
 
 group :development, :test do
