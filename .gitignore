@@ -34,3 +34,6 @@ vendor/bundle
 
 # Coverage
 coverage/
+
+# Trello keys
+trollolo/.trollolorc
