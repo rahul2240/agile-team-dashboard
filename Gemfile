@@ -43,6 +43,7 @@ gem 'country_select'
 gem 'flag-icon-sass'
 
 gem 'identicon'
+gem 'redcarpet'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

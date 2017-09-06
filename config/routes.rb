@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   namespace :team do
     resources :members
   end
+
+  PagesController::PAGES.each do |page|
+    get "pages/#{page}", to: "pages##{page}", as: "#{page}_page"
+  end
 end
