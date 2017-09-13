@@ -45,6 +45,8 @@ gem 'flag-icon-sass'
 gem 'identicon'
 gem 'redcarpet'
 
+gem 'trollolo', git: 'https://github.com/Ana06/trollolo', branch: 'bug'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
