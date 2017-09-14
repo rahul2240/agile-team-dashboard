@@ -20,7 +20,7 @@ class CreateMeetings
     Meeting.create!(name: 'Planning part 1', event_type: :planning, start_date: datetime(date, '11:00'),
                     end_date: datetime(date, '12:00'), location: 'gotomeeting')
     Meeting.create(name: 'Planning part 2', event_type: :planning, start_date: datetime(date, '13:30'),
-                   end_date: datetime(date, '15:30'), location: 'gotomeeting')
+                   end_date: datetime(date, '15:00'), location: 'gotomeeting')
   end
 
   def self.create_grooming(start_date, end_date)
