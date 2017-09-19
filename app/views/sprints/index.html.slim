@@ -10,6 +10,11 @@
                 = sprint.name
                 .description
                   = "#{sprint.start_date.strftime("%d-%m-%Y")} until #{sprint.end_date.strftime("%d-%m-%Y")}"
+                  span style="padding-left: 10px;"
+                    - if sprint.unstarted_sprint?
+                      = link_to sprint_start_path(sprint) do
+                        i.video.play.icon
+                        'Start sprint
                   span.action.right.floated
                     = link_to edit_sprint_path(sprint) do
                       i.write.icon

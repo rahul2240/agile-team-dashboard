@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :dashboards
   resources :calendars, only: :index
-  resources :sprints
+  resources :sprints do
+    get :start
+  end
   resources :meetings
   resources :absences
   namespace :team do

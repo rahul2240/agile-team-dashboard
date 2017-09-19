@@ -1,6 +1,9 @@
 # Sprints controller
+
+require 'English'
+
 class SprintsController < ApplicationController
-  before_action :set_sprint, only: %i(show edit update destroy)
+  before_action :set_sprint, only: %i(show edit update destroy start)
 
   def index
     @sprints = Sprint.all
@@ -39,10 +42,26 @@ class SprintsController < ApplicationController
     redirect_to sprints_path
   end
 
+  def start
+    # Generate new sprint, paint burndown char and upload it to Trello
+    system 'trollolo burndown --new_sprint --plot-to-board --output=trollolo '\
+            "--total_days=#{@sprint.days} --weekend_lines=#{@sprint.weekend_lines}"
+    unless $CHILD_STATUS.success?
+      File.delete('trollolo/burndown-data-02.yaml') if File.exist?('trollolo/burndown-data-02.yaml')
+      flash[:error] = 'Something went wrong, the new sprint was not generated'
+      redirect_to action: 'index'
+      return
+    end
+
+    # TODO: Push burndown char to github
+
+    redirect_to action: 'index'
+  end
+
   private
 
   def set_sprint
-    @sprint = Sprint.find(params[:id])
+    @sprint = Sprint.find(params[:id] || params[:sprint_id])
   end
 
   def permitted_params

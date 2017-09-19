@@ -8,6 +8,19 @@ class Sprint < ApplicationRecord
     find_by('start_date <= :today AND end_date >= :today', today: Time.zone.today)
   end
 
+  def unstarted_sprint?
+    start_date.today? && !File.exist?('trollolo/burndown-data-02.yaml')
+  end
+
+  def days
+    1 + (end_date - start_date).to_i - (2 * number_weekends)
+  end
+
+  def weekend_lines
+    first_line = 6.5 - start_date.cwday
+    (0..(number_weekends - 1)).map { |i| first_line + (i * 5) }.join(' ')
+  end
+
   private
 
   def starts_on_weekday
@@ -20,6 +33,10 @@ class Sprint < ApplicationRecord
 
   def create_meetings
     CreateMeetings.run(self)
+  end
+
+  def number_weekends
+    end_date.cweek - start_date.cweek
   end
 end
 
