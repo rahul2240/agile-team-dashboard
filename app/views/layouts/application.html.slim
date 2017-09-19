@@ -10,5 +10,18 @@ html
     = render partial: 'shared/sidebar'
 
     section
+      - flash.each do |key, message|
+        div class="ui #{key} message"
+          i.close.icon
+          - if message.is_a?(Array)
+            .header
+              = message.first
+            ul.list
+              - message.last.each do |content|
+               li= content
+          - else
+            .header
+              = message
+
       = yield
 
