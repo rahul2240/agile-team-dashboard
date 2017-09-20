@@ -2,6 +2,16 @@
 
 # Agile Team Dashboard project
 
+This project is used to develop [OBS](http://openbuildservice.org) team Dashboard. The production instance can be found here: https://bs.suse.de
+
+The Dashboard include the following features:
+
+- Today meetings
+- Today absences
+- Calendar
+- Team related open PRs
+- ...
+
 ## CONTRIBUTING
 
 ### Running the project in development
