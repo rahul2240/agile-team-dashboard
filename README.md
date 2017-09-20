@@ -1,26 +1,104 @@
 [![codecov](https://codecov.io/gh/openSUSE/agile-team-dashboard/branch/master/graph/badge.svg)](https://codecov.io/gh/openSUSE/agile-team-dashboard)
 
-# README for the Agile Team Dashboard project
+# Agile Team Dashboard project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## CONTRIBUTING
 
-Things you may want to cover:
+### Running the project in development
 
-* Ruby version
+We are using [Vagrant](https://www.vagrantup.com/) to create our development environment. You need to install [Vagrant](https://software.opensuse.org/package/vagrant) and [VirtualBox](https://en.opensuse.org/VirtualBox). After installing it:
 
-* System dependencies
+1. Clone the repository:
 
-* Configuration
+    ```
+    git clone https://github.com/openSUSE/agile-team-dashboard.git
+    ```
 
-* Database creation
+2. Execute Vagrant in the cloned directory:
 
-* Database initialization
+    ```
+    vagrant up
+    ```
 
-* How to run the test suite
+3. Start the app:
 
-* Services (job queues, cache servers, search engines, etc.)
+    ```
+    vagrant exec foreman start
+    ```
 
-* Deployment instructions
+4. Access the Rails app at [localhost:3001](http://localhost:3001). You can just sign up!
 
-* ...
+
+### Contribute code
+
+To contribute code open pull requests.
+
+Ensure that RSpec, Rubocop, Slim-Lint, Git Cop and JSHint pass locally before sending your PR and always that you add new changes.
+
+
+## To run RSpec test
+
+To run all the RSpec test:
+
+```
+vagrant exec bundle exec rspec
+```
+
+To run all the test in one spec file, for example `spec/models/user_spec.rb`:
+
+```
+vagrant exec bundle exec rspec spec/models/user_spec.rb
+```
+
+To only run the test in the line 10 of the file:
+
+```
+vagrant exec bundle exec rspec spec/models/user_spec.rb:10
+```
+
+
+## To run rubocop
+
+To run Rubocop displaying cop names in offense messages:
+
+```
+vagrant exec bundle exec rubocop -D
+```
+
+To **autocorrect** Rubocop offenses, displaying also cop names in offense messages:
+
+```
+vagrant exec bundle exec rubocop -aD
+```
+
+
+## To run Slim-Lint
+
+To run Slim-Lint in the current directory:
+
+```
+vagrant exec bundle exec slim-lint .
+```
+
+
+## To run Git Cop
+
+To run Git Cop, run the following task that will copy the configuration file in the correct directory for you:
+
+```
+vagrant exec bundle exec rake git_cop
+```
+
+Note that you need that your local master branch is up to date, as Git Cop will only check the new commits from your current branch commparing it with your local master branch.
+
+
+## To run JSHint
+
+To run JSHint in the current directory:
+
+```
+vagrant exec jshint .
+```
+
+
+
