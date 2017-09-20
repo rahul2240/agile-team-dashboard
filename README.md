@@ -111,4 +111,9 @@ vagrant exec jshint .
 ```
 
 
+## Licence
+
+Code published under MIT license (see [LICENSE](LICENSE)).
+
+
 
