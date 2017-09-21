@@ -7,7 +7,12 @@ zypper -q ar -f http://download.opensuse.org/repositories/devel:/languages:/ruby
 zypper -q --gpg-auto-import-keys --non-interactive ref
 zypper -q -n in -t pattern devel_basis
 zypper -q -n in libopenssl-devel readline-devel \
-    postgresql94-server postgresql94-devel libxml2-devel libxslt-devel ruby2.4-devel
+    postgresql94-server postgresql94-devel libxml2-devel libxslt-devel ruby2.4-devel \
+    python-matplotlib python-matplotlib-tk python-PyYAML
+
+# Download font needed by Trollolo to avoid warnings
+wget -O ~/.fonts/Humor-Sans.ttf "https://github.com/shreyankg/xkcd-desktop/raw/master/Humor-Sans.ttf"
+rm ~/.cache/matplotlib/fontList.cache
 
 # postgresql
 echo -e "\nsetting up postgresl...\n"
