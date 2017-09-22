@@ -46,6 +46,7 @@ gem 'identicon'
 gem 'redcarpet'
 
 gem 'trollolo', git: 'https://github.com/Ana06/trollolo', branch: 'bug'
+gem 'clockwork'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
