@@ -9,6 +9,8 @@ class Meeting < Event
   scope :finished, (-> { where('DATE(end_date) < ?', Time.zone.today).order(start_date: :asc) })
   scope :standups, -> { where(event_type: 'standup') }
   scope :started_after_until, ->(date1, date2) { where('start_date > ? AND start_date <= ?', date1, date2) }
+  scope :reviews, -> { where(event_type: 'review') }
+  scope :ended_after_until, ->(date1, date2) { where('end_date > ? AND end_date <= ?', date1, date2) }
 
   # Contants
   #
