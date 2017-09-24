@@ -14,7 +14,7 @@ gem 'puma'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
-gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
+gem 'semantic-ui-sass'
 
 gem 'coffee-rails'
 gem 'uglifier', '>= 1.3.0'
