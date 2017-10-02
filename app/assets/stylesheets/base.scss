@@ -64,3 +64,10 @@ footer {
   overflow-x: hidden;
 }
 
+#markdown_page {
+  table {
+    @extend .ui;
+    @extend .celled;
+    @extend .table;
+  }
+}
