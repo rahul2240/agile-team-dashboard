@@ -52,9 +52,23 @@
   :whitelist:
     - Add
     - Change
+    - Complete
+    - Configure
+    - Create
+    - Delete
     - Disable
+    - Document
     - Enable
+    - Fix
+    - Improve
+    - Join
+    - Make
+    - Modify
+    - Move
+    - Refactor
+    - Relax
     - Remove
+    - Split
     - Use
     - Update
 :commit_subject_suffix:
