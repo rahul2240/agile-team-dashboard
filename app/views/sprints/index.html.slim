@@ -7,7 +7,7 @@
           .item
             .content
               .header
-                = sprint.name
+                = sprint.number
                 .description
                   = "#{sprint.start_date.strftime("%d-%m-%Y")} until #{sprint.end_date.strftime("%d-%m-%Y")}"
                   span.action.right.floated
@@ -20,7 +20,7 @@
     .ui.segment
       = simple_form_for(@sprint, html: { class: 'ui form '}) do |f|
         .field
-          = f.input :name
+          = f.input :number
         .two.fields
           = f.input :start_date, as: :string,
                                  wrapper_html: { class: 'calendar_range_start' }
