@@ -53,8 +53,6 @@ class SprintsController < ApplicationController
       return
     end
 
-    # TODO: Push burndown char to github
-
     redirect_to action: 'index'
   end
 
