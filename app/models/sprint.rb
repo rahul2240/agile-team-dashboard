@@ -1,5 +1,5 @@
 class Sprint < ApplicationRecord
-  validates :start_date, :end_date, presence: true
+  validates :number, :start_date, :end_date, presence: true
   validate :starts_on_weekday, :ends_on_weekday
 
   after_create :create_meetings
