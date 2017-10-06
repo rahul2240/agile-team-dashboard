@@ -9,7 +9,7 @@ class Sprint < ApplicationRecord
   end
 
   def unstarted_sprint?
-    start_date.today? && !File.exist?('trollolo/burndown-data-02.yaml')
+    start_date.today? && !File.exist?("trollolo/burndown-data-#{number}.yaml")
   end
 
   def days

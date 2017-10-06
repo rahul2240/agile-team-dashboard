@@ -45,9 +45,10 @@ class SprintsController < ApplicationController
   def start
     # Generate new sprint, paint burndown char and upload it to Trello
     system 'trollolo burndown --new_sprint --plot-to-board --output=trollolo '\
-            "--total_days=#{@sprint.days} --weekend_lines=#{@sprint.weekend_lines}"
+            "--total_days=#{@sprint.days} --weekend_lines=#{@sprint.weekend_lines} --sprint-number=#{@sprint.number}"
     unless $CHILD_STATUS.success?
-      File.delete('trollolo/burndown-data-02.yaml') if File.exist?('trollolo/burndown-data-02.yaml')
+      file_name = "trollolo/burndown-data-#{@sprint.number}.yaml"
+      File.delete(file_name) if File.exist?(file_name)
       flash[:error] = 'Something went wrong, the new sprint was not generated'
       redirect_to action: 'index'
       return

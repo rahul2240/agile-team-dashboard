@@ -45,7 +45,7 @@ gem 'flag-icon-sass'
 gem 'identicon'
 gem 'redcarpet'
 
-gem 'trollolo', git: 'https://github.com/Ana06/trollolo', branch: 'bug'
+gem 'trollolo', '>= 0.1.1'
 gem 'clockwork'
 
 # Use Capistrano for deployment
