@@ -17,7 +17,7 @@ RSpec.describe Meeting, type: :model do
     let(:user)  { create(:user) }
     let(:event) { create(:event, user: user) }
 
-    it { expect(event.title).to eq("#{user.github_login} - #{event.event_type}") }
+    it { expect(event.title).to eq("#{user.name} - #{event.event_type}") }
   end
 
   context '#all_day?' do

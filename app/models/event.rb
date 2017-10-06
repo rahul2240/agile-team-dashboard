@@ -21,7 +21,7 @@ class Event < ApplicationRecord
   # Instance methods
   #
   def title
-    [user.try(:github_login), event_type].reject(&:blank?).join(' - ')
+    [user.name, event_type].reject(&:blank?).join(' - ')
   end
 
   def all_day?
