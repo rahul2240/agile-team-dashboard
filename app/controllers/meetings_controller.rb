@@ -52,7 +52,8 @@ class MeetingsController < ApplicationController
       :event_type,
       :location,
       :start_date,
-      :end_date
+      :end_date,
+      :sprint_id
     )
   end
 end

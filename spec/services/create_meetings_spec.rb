@@ -36,46 +36,55 @@ RSpec.describe CreateMeetings, type: :service do
     end
   end
 
-  context '#self.create_standups' do
+  context 'different type of meetings' do
+    let(:sprint_2) { create(:sprint) }
+
     before do
-      CreateMeetings.create_standups(start_date, end_date)
+      sprint_2
+      Meeting.destroy_all
     end
 
-    it { expect(Meeting.where(event_type: :standup).count).to eq(8) }
-  end
+    context '#self.create_standups' do
+      before do
+        CreateMeetings.create_standups(start_date, end_date, sprint_2)
+      end
 
-  context '#self.create_plannings' do
-    before do
-      CreateMeetings.create_plannings(start_date)
+      it { expect(Meeting.where(event_type: :standup).count).to eq(8) }
     end
 
-    it { expect(Meeting.where(event_type: :planning).count).to eq(2) }
-  end
+    context '#self.create_plannings' do
+      before do
+        CreateMeetings.create_plannings(start_date, sprint_2)
+      end
 
-  context '#self.create_grooming' do
-    before do
-      CreateMeetings.create_grooming(start_date, end_date)
+      it { expect(Meeting.where(event_type: :planning).count).to eq(2) }
     end
 
-    subject { Meeting.where(event_type: :grooming) }
+    context '#self.create_grooming' do
+      before do
+        CreateMeetings.create_grooming(start_date, end_date, sprint_2)
+      end
 
-    it { expect(subject.count).to eq(1) }
-    it { expect(subject.first.start_date.monday?).to be_truthy }
-  end
+      subject { Meeting.where(event_type: :grooming) }
 
-  context '#self.create_review' do
-    before do
-      CreateMeetings.create_review(end_date)
+      it { expect(subject.count).to eq(1) }
+      it { expect(subject.first.start_date.monday?).to be_truthy }
     end
 
-    it { expect(Meeting.where(event_type: :review).count).to eq(1) }
-  end
+    context '#self.create_review' do
+      before do
+        CreateMeetings.create_review(end_date, sprint_2)
+      end
 
-  context '#self.create_retrospective' do
-    before do
-      CreateMeetings.create_retrospective(end_date)
+      it { expect(Meeting.where(event_type: :review).count).to eq(1) }
     end
 
-    it { expect(Meeting.where(event_type: :retrospective).count).to eq(1) }
+    context '#self.create_retrospective' do
+      before do
+        CreateMeetings.create_retrospective(end_date, sprint_2)
+      end
+
+      it { expect(Meeting.where(event_type: :retrospective).count).to eq(1) }
+    end
   end
 end

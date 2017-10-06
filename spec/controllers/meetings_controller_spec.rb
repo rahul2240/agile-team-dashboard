@@ -20,9 +20,10 @@ RSpec.describe MeetingsController, type: :controller do
   end
 
   describe 'GET #create' do
+    let(:sprint) { create(:sprint) }
     before do
       post :create, params: { meeting: { name: 'planning', start_date: Time.zone.today, end_date: Time.zone.today,
-                                         location: 'mumble', event_type: 'planning' } }
+                                         location: 'mumble', event_type: 'planning', sprint_id: sprint } }
     end
 
     it { expect(response).to redirect_to(meetings_path) }

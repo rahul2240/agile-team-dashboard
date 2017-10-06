@@ -1,4 +1,6 @@
 class Meeting < Event
+  belongs_to :sprint
+
   validates :location, :start_date, :end_date, :event_type, presence: true
 
   scope :today, (-> { where('DATE(start_date) = ?', Time.zone.today).order(start_date: :asc) })
