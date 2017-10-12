@@ -1,4 +1,5 @@
 class Sprint < ApplicationRecord
+  has_many :meetings, dependent: :destroy
   validates :number, :start_date, :end_date, presence: true
   validate :starts_on_weekday, :ends_on_weekday
 

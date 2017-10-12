@@ -1,7 +1,8 @@
 .ui.twelve.column.centered.grid
   .ui.six.wide.column.segment.login
     = simple_form_for(@meeting, html: { class: 'ui form'}) do |f|
-      .two.fields
+      .three.fields
+        = f.input :sprint_id, collection: Sprint.all.map { |x| [x.number, x.id]}, input_html: { class: 'dropdown' }
         = f.input :name, as: :string
         = f.input :event_type, collection: Meeting::TYPES
       .three.fields
