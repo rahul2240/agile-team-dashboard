@@ -1,6 +1,11 @@
 class Event < ApplicationRecord
   belongs_to :user, optional: true
 
+  scope :active, (lambda do
+    where('DATE(start_date) <= :today AND DATE(end_date) >= :today', today: Time.zone.today)
+      .order(start_date: :asc)
+  end)
+  scope :finished, (-> { where('DATE(end_date) < ?', Time.zone.today).order(start_date: :asc) })
   scope :in_month, (lambda do |start_date|
     where('start_date >= ?', start_date)
   end)
