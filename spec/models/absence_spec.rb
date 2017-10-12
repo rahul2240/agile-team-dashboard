@@ -15,7 +15,7 @@ RSpec.describe Absence, type: :model do
 
   describe 'scope today' do
     let!(:vacation1) do
-      create(:absence, event_type: :vacation, start_date: Time.zone.today, end_date: Time.zone.today)
+      create(:absence, event_type: :vacation, start_date: Time.zone.today - 1.hour, end_date: Time.zone.today)
     end
     let!(:vacation2) do
       create(:absence, event_type: :vacation, start_date: Time.zone.today - 3, end_date: Time.zone.today)

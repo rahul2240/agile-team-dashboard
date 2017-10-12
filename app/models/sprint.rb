@@ -1,12 +1,22 @@
 class Sprint < ApplicationRecord
   has_many :meetings, dependent: :destroy
+
+  scope :finished, (-> { where('DATE(end_date) < ?', Time.zone.today).order(start_date: :asc) })
+
   validates :number, :start_date, :end_date, presence: true
-  validate :starts_on_weekday, :ends_on_weekday
+  validate :starts_on_weekday, if: proc { |sprint| sprint.start_date }
+  validate :ends_on_weekday, if: proc { |sprint| sprint.end_date }
+  validate :longer_than_three_days, :sprint_collision, if: proc { |sprint| sprint.start_date && sprint.end_date }
 
   after_create :create_meetings
 
   def self.current
     find_by('start_date <= :today AND end_date >= :today', today: Time.zone.today)
+  end
+
+  def collision?
+    Sprint.where('start_date <= ? AND end_date >= ?', start_date, start_date)
+          .or(Sprint.where('start_date <= ? AND end_date >= ?', end_date, end_date)).present?
   end
 
   def unstarted_sprint?
@@ -30,6 +40,15 @@ class Sprint < ApplicationRecord
 
   def ends_on_weekday
     errors[:end_date] << 'can not be on weekend' if end_date.try(:on_weekend?)
+  end
+
+  def longer_than_three_days
+    errors[:end_date] << 'sprints with less than 3 days are not allowed' if (end_date - start_date) < 3
+  end
+
+  def sprint_collision
+    return unless collision?
+    errors[:start_date] << 'there is already a sprint in those dates'
   end
 
   def create_meetings

@@ -43,7 +43,7 @@ class Event < ApplicationRecord
 
   def ends_before_start
     return unless start_date && end_date
-    errors[:end_date] << 'can not end before start' if start_date > end_date
+    errors[:end_date] << 'can not end before start' if start_date >= end_date
   end
 end
 

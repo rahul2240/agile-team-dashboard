@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :meeting do
-    start_date '2017-02-21'
-    end_date '2017-02-21'
+    start_date '2017-02-21 10:00'
+    end_date '2017-02-21 11:00'
     sprint
 
     factory :standup do
