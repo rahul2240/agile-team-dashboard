@@ -5,6 +5,18 @@ RSpec.describe Meeting, type: :model do
     it { should validate_presence_of(attr) }
   end
 
+  context 'validate' do
+    context 'ends_before_start' do
+      let(:event) { build(:event, event_type: :vacation, start_date: '2017-10-04', end_date: '2017-10-02') }
+
+      before do
+        event.valid?
+      end
+
+      it { expect(event.errors.full_messages).to eq(['End date can not end before start']) }
+    end
+  end
+
   let(:vacation) { create(:event, event_type: :vacation) }
   let(:sick) { create(:event, event_type: :sick) }
   let(:standup) { create(:event, event_type: :standup) }

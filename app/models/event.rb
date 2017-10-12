@@ -10,6 +10,8 @@ class Event < ApplicationRecord
     where('start_date >= ?', start_date)
   end)
 
+  validate :ends_before_start
+
   # Contants
   #
   COLORS = {
@@ -35,6 +37,13 @@ class Event < ApplicationRecord
 
   def color
     COLORS[event_type.try(:to_sym)]
+  end
+
+  private
+
+  def ends_before_start
+    return unless start_date && end_date
+    errors[:end_date] << 'can not end before start' if start_date > end_date
   end
 end
 
