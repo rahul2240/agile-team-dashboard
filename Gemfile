@@ -92,6 +92,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
+  gem 'mina'
 end
 
 group :production do
