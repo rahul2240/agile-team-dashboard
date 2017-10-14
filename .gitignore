@@ -37,3 +37,6 @@ coverage/
 
 # Trello keys
 trollolo/.trollolorc
+
+# Deploy configuraton
+config/deploy.rb
