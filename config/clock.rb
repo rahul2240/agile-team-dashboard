@@ -18,7 +18,8 @@ module Clockwork
     # as they shouldn't overlap. Also, there should be only one active Sprint.
     if standups.any? || reviews.any?
       system "trollolo burndown --plot-to-board --output=trollolo --sprint-number=#{Sprint.current.number}"
-      if $CHILD_STATUS.success?
+      image_name = "trollolo/burndown-#{Sprint.current.number}.png"
+      if $CHILD_STATUS.success? && File.exist?(image_name)
         Rails.logger.info 'Burndown chart updated!'
 
         # Upload to Github and delete local files on end of Sprint
@@ -45,6 +46,8 @@ module Clockwork
             Rails.logger.error 'There was an error and the burndown chart was NOT uploaded to Github'
           end
         end
+        # TODO: implement this in Trollolo so we don't need to move the file afterwards
+        system "mv #{image_name} public/burndown.png"
       else
         Rails.logger.error 'There was an error and the burndown chart was NOT updated'
       end
