@@ -19,12 +19,10 @@
               = @member.email
 
   .ten.wide.column
+    h1.ui.header Profile Settings
     .ui.segment
       = simple_form_for(@member, url: team_member_path(@member), html: { class: 'ui form' }) do |f|
         = f.input :email, autofocus: true
-        .two.fields
-          = f.input :password, autocomplete: "off"
-          = f.input :password_confirmation, autocomplete: "off"
         .two.fields
           = f.input :name
           = f.input :surname
@@ -34,6 +32,16 @@
           .input.field
             = f.label :location
             = f.country_select :location, { include_blank: 'Select a country' }, { class: 'dropdown' }
+        .actions
+          .ui.right.floated.buttons
+            = link_to 'Cancel', edit_team_member_path(@member), class: 'ui button'
+            .or
+            = f.submit 'Update', class: 'ui green button'
+    h1.ui.header Account Settings
+    .ui.segment
+      = simple_form_for(@member, url: team_member_path(@member), html: { class: 'ui form' }) do |f|
+        = f.input :password, autocomplete: "off"
+        = f.input :password_confirmation, autocomplete: "off"
         .actions
           .ui.right.floated.buttons
             = link_to 'Cancel', edit_team_member_path(@member), class: 'ui button'
