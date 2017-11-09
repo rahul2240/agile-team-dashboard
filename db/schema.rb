@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20171009134130) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "events", id: :serial, force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.datetime "start_date"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171009134130) do
     t.integer "sprint_id"
   end
 
-  create_table "sprints", id: :serial, force: :cascade do |t|
+  create_table "sprints", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20171009134130) do
     t.integer "number", null: false
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
