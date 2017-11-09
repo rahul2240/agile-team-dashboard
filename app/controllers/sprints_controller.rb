@@ -46,7 +46,11 @@ class SprintsController < ApplicationController
     # Generate new sprint, paint burndown char and upload it to Trello
     system 'trollolo burndown --new_sprint --plot-to-board --output=trollolo '\
             "--total_days=#{@sprint.days} --weekend_lines=#{@sprint.weekend_lines} --sprint-number=#{@sprint.number}"
-    unless $CHILD_STATUS.success?
+    image_name = "trollolo/burndown-#{@sprint.number}.png"
+    if $CHILD_STATUS.success? && File.exist?(image_name)
+      # TODO: implement this in Trollolo so we don't need to move the file afterwards
+      system "mv #{image_name} public/burndown.png"
+    else
       file_name = "trollolo/burndown-data-#{@sprint.number}.yaml"
       File.delete(file_name) if File.exist?(file_name)
       flash[:error] = 'Something went wrong, the new sprint was not generated'
