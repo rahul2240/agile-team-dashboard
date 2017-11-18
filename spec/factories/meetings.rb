@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :meeting do
     start_date '2017-02-21 10:00'
     end_date '2017-02-21 11:00'

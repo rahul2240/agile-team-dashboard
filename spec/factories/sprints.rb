@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :sprint do
     sequence(:number) { |n| n }
     start_date '2017-08-07'

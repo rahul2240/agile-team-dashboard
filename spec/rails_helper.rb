@@ -40,7 +40,7 @@ require 'support/share_db_connection'
 require 'support/devise'
 require 'support/capybara'
 require 'support/shoulda_matcher'
-require 'support/factory_girl'
+require 'support/factory_bot'
 require 'support/database_cleaner'
 require 'support/shoulda_matcher'
 
@@ -48,7 +48,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.use_transactional_fixtures = false
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   config.include Capybara::DSL
   config.include Capybara::RSpecMatchers
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
