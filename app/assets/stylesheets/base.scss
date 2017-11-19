@@ -15,6 +15,14 @@ body { background: $color2; }
     width: 200px;
   }
 
+  .item .title {
+    padding-bottom: 5px;
+  }
+  .content .item {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
   .title.avatar {
     padding: 15px;
   }
