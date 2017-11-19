@@ -19,8 +19,8 @@
               = @member.email
 
   .ten.wide.column
-    h1.ui.header Profile Settings
     .ui.segment
+      h3.ui.header Profile Settings
       = simple_form_for(@member, url: team_member_path(@member), html: { class: 'ui form' }) do |f|
         = f.input :email, autofocus: true
         .two.fields
@@ -37,8 +37,9 @@
             = link_to 'Cancel', edit_team_member_path(@member), class: 'ui button'
             .or
             = f.submit 'Update', class: 'ui green button'
-    h1.ui.header Account Settings
+    br
     .ui.segment
+      h3.ui.header Account Settings
       = simple_form_for(@member, url: team_member_path(@member), html: { class: 'ui form' }) do |f|
         = f.input :password, autocomplete: "off"
         = f.input :password_confirmation, autocomplete: "off"
