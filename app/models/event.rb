@@ -21,7 +21,7 @@ class Event < ApplicationRecord
   # Instance methods
   #
   def title
-    [user.name, event_type].reject(&:blank?).join(' - ')
+    [user.try(:name), event_type].reject(&:blank?).join(' - ')
   end
 
   def all_day?
