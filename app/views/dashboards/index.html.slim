@@ -1,10 +1,10 @@
 .ui.stackable.column.grid
   .two.column.row
     .column
-      .ui.stackable.column.grid
-        .column
-          - if File.exist?('public/burndown.png')
-              = image_tag "/burndown.png", class: 'ui fluid rounded image'
+      - if File.exist?('public/burndown.png')
+        .ui.stackable.column.grid
+          .column
+            = image_tag "/burndown.png", class: 'ui fluid rounded image'
       .ui.stackable.three.column.grid
         - if @meetings
           .column
