@@ -1,9 +1,16 @@
 class Event < ApplicationRecord
   belongs_to :user, optional: true
 
+  scope :active, (lambda do
+    where('DATE(start_date) <= :today AND DATE(end_date) >= :today', today: Time.zone.today)
+      .order(start_date: :asc)
+  end)
+  scope :finished, (-> { where('DATE(end_date) < ?', Time.zone.today).order(start_date: :asc) })
   scope :in_month, (lambda do |start_date|
     where('start_date >= ?', start_date)
   end)
+
+  validate :ends_before_start
 
   # Contants
   #
@@ -30,6 +37,13 @@ class Event < ApplicationRecord
 
   def color
     COLORS[event_type.try(:to_sym)]
+  end
+
+  private
+
+  def ends_before_start
+    return unless start_date && end_date
+    errors[:end_date] << 'can not end before start' if start_date >= end_date
   end
 end
 
