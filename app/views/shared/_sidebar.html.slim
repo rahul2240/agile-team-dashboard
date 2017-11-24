@@ -31,13 +31,13 @@
     .title
       i.user.icon
       | MY ACOUNT
-      .content
-        .item
-          = link_to 'Profile', edit_team_member_path(current_user)
-        .item
-          = link_to 'Absences', absences_path
-        .item
-          = link_to 'Logout', destroy_user_session_path, method: :delete
+    .content
+      .item
+        = link_to 'Profile', edit_team_member_path(current_user)
+      .item
+        = link_to 'Absences', absences_path
+      .item
+        = link_to 'Logout', destroy_user_session_path, method: :delete
 
 .obs-logo
   = link_to dashboards_path do
