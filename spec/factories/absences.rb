@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :absence do
     name        { Faker::Cat.name }
     location    { Faker::Address.street_name }
