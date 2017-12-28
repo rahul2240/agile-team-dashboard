@@ -74,7 +74,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'rubocop', '~> 0.47.1', require: false
+  gem 'rubocop', require: false
   # for property tests
   gem 'rantly'
   gem 'faker'
