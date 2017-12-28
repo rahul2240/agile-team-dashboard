@@ -18,6 +18,7 @@
 //= require jquery.qtip.min
 //= require calendar.min
 //= require moment
+//= require smart_listing
 //= require fullcalendar
 //= require custom
 //= require_tree .

@@ -1,0 +1,21 @@
+- unless smart_listing.empty?
+  table.ui.celled.table
+    thead
+      th.header = smart_listing.sortable "Number", "number"
+      th.header = smart_listing.sortable "Start Date", "start_date"
+      th.header = smart_listing.sortable "End Date", "end_date"
+    tbody
+      - smart_listing.collection.each do |sprint|
+        tr
+          td.header
+            = sprint.number
+          td.description
+            = "#{sprint.start_date.strftime("%d-%m-%Y")}"
+          td.description
+            = "#{sprint.end_date.strftime("%d-%m-%Y")}"
+
+  = smart_listing.paginate
+  - puts smart_listing.paginate
+- else
+  p.warning 
+    No records!

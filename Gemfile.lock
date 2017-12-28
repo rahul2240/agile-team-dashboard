@@ -333,6 +333,10 @@ GEM
       rubocop (>= 0.47.0)
       slim (~> 3.0)
       sysexits (~> 1.1)
+    smart_listing (1.0.0)
+      coffee-rails
+      kaminari (>= 0.15.1)
+      rails (>= 3.2)
     sort_alphabetical (1.1.0)
       unicode_utils (>= 1.2.2)
     spring (2.0.2)
@@ -437,6 +441,7 @@ DEPENDENCIES
   slim
   slim-rails
   slim_lint
+  smart_listing
   spring
   spring-watcher-listen (~> 2.0.0)
   therubyracer

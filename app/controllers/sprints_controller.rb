@@ -4,9 +4,15 @@ require 'English'
 
 class SprintsController < ApplicationController
   before_action :set_sprint, only: %i[show edit update destroy start]
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
 
   def index
-    @sprints = Sprint.all
+    self.params = params.permit!
+    smart_listing_create :sprints, Sprint.all, partial: 'sprints/listing', default_sort: { number: 'asc' },
+                                               sort_attributes: [[:number, 'number'],
+                                                                 [:start_date, 'start_date'],
+                                                                 [:end_date, 'end_date']]
     @sprint = Sprint.new
   end
 
