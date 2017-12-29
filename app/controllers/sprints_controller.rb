@@ -3,7 +3,7 @@
 require 'English'
 
 class SprintsController < ApplicationController
-  before_action :set_sprint, only: %i(show edit update destroy start)
+  before_action :set_sprint, only: %i[show edit update destroy start]
 
   def index
     @sprints = Sprint.all

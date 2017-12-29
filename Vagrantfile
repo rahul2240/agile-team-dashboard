@@ -6,7 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 
-REQUIRED_PLUGINS = %w(vagrant-exec).freeze
+REQUIRED_PLUGINS = %w[vagrant-exec].freeze
 
 plugins_to_install = REQUIRED_PLUGINS.reject { |plugin| Vagrant.has_plugin? plugin }
 unless plugins_to_install.empty?
@@ -30,7 +30,7 @@ Vagrant.configure(2) do |config|
   # Vagrant exec plugin
   #
   config.exec.commands '*', directory: '/vagrant'
-  config.exec.commands %w(rails rake rspec bundle), env: { 'PATH' => './bin:$PATH' }
+  config.exec.commands %w[rails rake rspec bundle], env: { 'PATH' => './bin:$PATH' }
   config.exec.commands %w[rails rake rspec], prepend: 'bundle exec'
 
   #

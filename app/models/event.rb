@@ -32,7 +32,7 @@ class Event < ApplicationRecord
   end
 
   def all_day?
-    %w(vacation sick).include?(event_type)
+    %w[vacation sick].include?(event_type)
   end
 
   def color

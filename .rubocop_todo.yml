@@ -41,27 +41,6 @@ Rails/LexicallyScopedActionFilter:
 Style/Documentation:
   Enabled: false
 
-# Offense count: 18
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'Vagrantfile'
-    - 'app/controllers/absences_controller.rb'
-    - 'app/controllers/calendars_controller.rb'
-    - 'app/controllers/dashboards_controller.rb'
-    - 'app/controllers/meetings_controller.rb'
-    - 'app/controllers/sprints_controller.rb'
-    - 'app/controllers/team/members_controller.rb'
-    - 'app/models/absence.rb'
-    - 'app/models/event.rb'
-    - 'app/models/meeting.rb'
-    - 'spec/models/absence_spec.rb'
-    - 'spec/models/event_spec.rb'
-    - 'spec/models/meeting_spec.rb'
-    - 'spec/models/sprint_spec.rb'
-    - 'spec/models/user_spec.rb'
-
 # Offense count: 16
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
