@@ -8,7 +8,7 @@
 
 REQUIRED_PLUGINS = %w(vagrant-exec)
 
-plugins_to_install = REQUIRED_PLUGINS.select { |plugin| !Vagrant.has_plugin? plugin }
+plugins_to_install = REQUIRED_PLUGINS.reject { |plugin| Vagrant.has_plugin? plugin }
 unless plugins_to_install.empty?
   puts "Installing required plugins: #{plugins_to_install.join(' ')}"
   if system "vagrant plugin install #{plugins_to_install.join(' ')}"

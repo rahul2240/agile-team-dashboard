@@ -43,13 +43,6 @@ Style/Documentation:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: InverseMethods, InverseBlocks.
-Style/InverseMethods:
-  Exclude:
-    - 'Vagrantfile'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Style/MutableConstant:
   Exclude:
     - 'Vagrantfile'
