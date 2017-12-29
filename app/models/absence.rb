@@ -5,7 +5,7 @@ class Absence < Event
 
   # Contants
   #
-  TYPES = %i(workshop vacation sick other).freeze
+  TYPES = %i[workshop vacation sick other].freeze
 end
 
 # == Schema Information

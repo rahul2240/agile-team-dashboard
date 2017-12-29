@@ -13,7 +13,7 @@ class DashboardsController < ApplicationController
     @pull_requests[:dashboard] = PullRequest.from_github_repository('openSUSE/agile-team-dashboard')
     @public_holidays = Holidays.between(Time.zone.today.beginning_of_week,
                                         Time.zone.today.end_of_week,
-                                        %i(es gb cz))
+                                        %i[es gb cz])
     @birthdays = User.birthdays_of_this_week
   end
 end
