@@ -31,37 +31,37 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'holidays'
 gem 'kaminari'
+gem 'simple_form'
 gem 'slim'
 gem 'slim-rails'
-gem 'simple_form'
 
-gem 'pundit'
-gem 'fullcalendar-rails'
-gem 'momentjs-rails'
 gem 'active_hash'
 gem 'country_select'
 gem 'flag-icon-sass'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'pundit'
 
 gem 'identicon'
 gem 'redcarpet'
 
-gem 'trollolo', '>= 0.1.1'
 gem 'clockwork'
+gem 'trollolo', '>= 0.1.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :test do
-  gem 'factory_bot_rails'
+  gem 'capybara'
   gem 'database_cleaner'
-  gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
   gem 'launchy'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
+  gem 'poltergeist'
+  gem 'rails-controller-testing'
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'rails-controller-testing'
-  gem 'capybara'
-  gem 'poltergeist'
-  gem 'phantomjs', require: 'phantomjs/poltergeist'
+  gem 'shoulda-matchers'
   gem 'timecop'
   # for test coverage reports
   gem 'codecov', require: false
@@ -72,12 +72,12 @@ end
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rubocop', require: false
   # for property tests
-  gem 'rantly'
   gem 'faker'
+  gem 'rantly'
   gem 'slim_lint'
 end
 
@@ -89,10 +89,10 @@ group :development do
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running
   # in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
   gem 'mina'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :production do
