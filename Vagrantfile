@@ -14,7 +14,7 @@ unless plugins_to_install.empty?
   if system "vagrant plugin install #{plugins_to_install.join(' ')}"
     exec "vagrant #{ARGV.join(' ')}"
   else
-    abort "Installation of one or more plugins has failed. Aborting."
+    abort 'Installation of one or more plugins has failed. Aborting.'
   end
 end
 
@@ -22,9 +22,9 @@ Vagrant.configure(2) do |config|
   #
   # Basic configuration
   #
-  config.vm.box = "opensuse/openSUSE-42.2-x86_64"
-  config.vm.hostname = "agile-teamdashboard"
-  config.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: 100
+  config.vm.box = 'opensuse/openSUSE-42.2-x86_64'
+  config.vm.hostname = 'agile-teamdashboard'
+  config.vm.synced_folder '.', '/vagrant', owner: 'vagrant', group: 100
 
   #
   # Vagrant exec plugin
@@ -36,8 +36,8 @@ Vagrant.configure(2) do |config|
   #
   # Network
   #
-  config.vm.network "private_network", type: "dhcp"
-  config.vm.network "forwarded_port", guest: 3001, host: 3001
+  config.vm.network 'private_network', type: 'dhcp'
+  config.vm.network 'forwarded_port', guest: 3001, host: 3001
 
   # Use 1Gb of RAM for Vagrant box (otherwise bundle will go to swap)
   config.vm.provider :virtualbox do |vb|
@@ -55,5 +55,5 @@ Vagrant.configure(2) do |config|
   #
   # Provisioning
   #
-  config.vm.provision :shell, path: "provisioning/bootstrap.sh"
+  config.vm.provision :shell, path: 'provisioning/bootstrap.sh'
 end

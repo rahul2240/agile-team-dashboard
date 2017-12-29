@@ -40,13 +40,3 @@ Rails/LexicallyScopedActionFilter:
 # Offense count: 27
 Style/Documentation:
   Enabled: false
-
-# Offense count: 16
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'Gemfile'
-    - 'Vagrantfile'
-    - 'lib/tasks/git-cop.rake'

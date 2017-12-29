@@ -97,5 +97,5 @@ end
 
 group :production do
   # passenger for apache2
-  gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
+  gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
 end
