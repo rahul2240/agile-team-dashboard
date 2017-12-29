@@ -6,7 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 
-REQUIRED_PLUGINS = %w(vagrant-exec)
+REQUIRED_PLUGINS = %w(vagrant-exec).freeze
 
 plugins_to_install = REQUIRED_PLUGINS.reject { |plugin| Vagrant.has_plugin? plugin }
 unless plugins_to_install.empty?

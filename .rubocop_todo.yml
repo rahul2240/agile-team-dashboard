@@ -41,12 +41,6 @@ Rails/LexicallyScopedActionFilter:
 Style/Documentation:
   Enabled: false
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/MutableConstant:
-  Exclude:
-    - 'Vagrantfile'
-
 # Offense count: 18
 # Cop supports --auto-correct.
 # Configuration parameters: PreferredDelimiters.
