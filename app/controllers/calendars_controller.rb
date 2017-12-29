@@ -10,8 +10,8 @@ class CalendarsController < ApplicationController
   private
 
   def calendar_data
-    start_date = params[:start].present? ? params[:start] : Time.zone.today.beginning_of_month
-    end_date = params[:end].present? ? params[:end] : Date.end.beginning_of_month
+    start_date = params[:start].presence || Time.zone.today.beginning_of_month
+    end_date = params[:end].presence || Date.end.beginning_of_month
 
     events = Event.in_month(start_date).map do |event|
       CalendarEvent.new(title: event.title,

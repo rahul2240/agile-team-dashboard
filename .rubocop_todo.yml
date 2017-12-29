@@ -37,12 +37,6 @@ Rails/LexicallyScopedActionFilter:
     - 'app/controllers/meetings_controller.rb'
     - 'app/controllers/sprints_controller.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Rails/Presence:
-  Exclude:
-    - 'app/controllers/calendars_controller.rb'
-
 # Offense count: 27
 Style/Documentation:
   Enabled: false
