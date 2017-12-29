@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :members
   end
 
-  PagesController::PAGES.each do |page|
+  PagesController::PAGES.each_key do |page|
     get "pages/#{page}", to: "pages##{page}", as: "#{page}_page"
   end
 end
