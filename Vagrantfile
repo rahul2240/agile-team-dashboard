@@ -30,7 +30,7 @@ Vagrant.configure(2) do |config|
   # Vagrant exec plugin
   #
   config.exec.commands '*', directory: '/vagrant'
-  config.exec.commands %w(rails rake rspec bundle), env: {'PATH' => './bin:$PATH'}
+  config.exec.commands %w(rails rake rspec bundle), env: { 'PATH' => './bin:$PATH' }
   config.exec.commands %w[rails rake rspec], prepend: 'bundle exec'
 
   #
