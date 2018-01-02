@@ -15,9 +15,15 @@ class User < ApplicationRecord
   end)
 
   def self.birthdays_of_this_week
-    select do |user|
-      user.birthday? && (Time.zone.today..Time.zone.today + 6).cover?(user.birthday.change(year: Time.zone.now.year))
-    end
+    today = Date.current
+    today_str = today.strftime('%Y%m%d')
+    limit = today + 6.days
+    limit_str = limit.strftime('%Y%m%d')
+    User.where(
+      "(('#{today.year}' || to_char(birthday, 'MMDD')) between '#{today_str}' and '#{limit_str}')" \
+      'or' \
+      "(('#{limit.year}' || to_char(birthday, 'MMDD')) between '#{today_str}' and '#{limit_str}')"
+    )
   end
 
   def fullname
