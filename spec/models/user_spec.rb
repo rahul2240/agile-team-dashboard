@@ -31,5 +31,15 @@ RSpec.describe User, type: :model do
         expect(User.birthdays_of_this_week).to eq(users_with_birthday)
       }
     end
+
+    context 'with a user with birthday on 29th February' do
+      let!(:user_born_on_29_02) { create :user, birthday: Date.new(1976, 2, 29) }
+
+      before do
+        allow(Date).to receive(:current).and_return(Date.new(2017, 2, 28))
+      end
+
+      it { expect(User.birthdays_of_this_week).to eq([user_born_on_29_02]) }
+    end
   end
 end
