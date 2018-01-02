@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
         range(0, 10).times { FactoryBot.create(:user, birthday: range(16, 70).years.ago + range(7, 364).days) }
         (1..range(0, 10)).map { FactoryBot.create(:user, birthday: range(16, 70).years.ago + range(0, 6).days) }
       }.check(1) { |user_with_birthdays_this_week|
-        expect(User.birthdays_of_this_week).to eq(user_with_birthdays_this_week)
+        expect(User.with_birthday).to eq(user_with_birthdays_this_week)
       }
     end
 
@@ -29,7 +29,7 @@ RSpec.describe User, type: :model do
         allow(Date).to receive(:current).and_return(Date.new(2017, 2, 28))
       end
 
-      it { expect(User.birthdays_of_this_week).to eq([user_born_on_29_02]) }
+      it { expect(User.with_birthday).to eq([user_born_on_29_02]) }
     end
 
     context 'with a user with birthday on 1st January' do
@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
         allow(Date).to receive(:current).and_return(Date.new(2017, 12, 29))
       end
 
-      it { expect(User.birthdays_of_this_week).to eq([user_born_on_01_01]) }
+      it { expect(User.with_birthday).to eq([user_born_on_01_01]) }
     end
   end
 end
