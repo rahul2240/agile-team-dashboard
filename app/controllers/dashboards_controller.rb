@@ -2,7 +2,7 @@
 class DashboardsController < ApplicationController
   def index
     @sprint = Sprint.current
-    @absences = Absence.today
+    @absences = Absence.week
     @meetings = Meeting.today
     pull_requests = PullRequest.from_github_repository('openSUSE/open-build-service')
     @pull_requests = {}

@@ -1,7 +1,7 @@
 class Absence < Event
   validates :start_date, :end_date, :event_type, presence: true
 
-  scope :today, (-> { where('start_date <= :today AND end_date >= :today', today: Time.zone.today) })
+  scope :week, (-> { where('start_date <= ? AND end_date >= ?', Date.current + 6.days, Date.current) })
 
   # Contants
   #
