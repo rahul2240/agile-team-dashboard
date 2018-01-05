@@ -14,6 +14,6 @@ class DashboardsController < ApplicationController
     @public_holidays = Holidays.between(Time.zone.today.beginning_of_week,
                                         Time.zone.today.end_of_week,
                                         %i[es gb cz])
-    @birthdays = User.birthdays_of_this_week
+    @birthdays = User.with_birthday
   end
 end
