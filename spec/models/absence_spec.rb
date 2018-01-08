@@ -13,26 +13,26 @@ RSpec.describe Absence, type: :model do
     it { expect(Absence::TYPES.count).to eq(4) }
   end
 
-  describe 'scope today' do
+  describe 'scope week' do
     let!(:vacation1) do
       create(:absence, event_type: :vacation, start_date: Time.zone.today - 1.hour, end_date: Time.zone.today)
     end
     let!(:vacation2) do
-      create(:absence, event_type: :vacation, start_date: Time.zone.today - 3, end_date: Time.zone.today)
+      create(:absence, event_type: :vacation, start_date: Time.zone.today - 3, end_date: Time.zone.today + 6)
     end
     let!(:vacation3) do
       create(:absence, event_type: :vacation, start_date: Time.zone.today, end_date: Time.zone.today + 5)
     end
     let!(:vacation4) do
-      create(:absence, event_type: :vacation, start_date: Time.zone.today - 6, end_date: Time.zone.today + 5)
+      create(:absence, event_type: :vacation, start_date: Time.zone.today - 6, end_date: Time.zone.today)
     end
     let!(:sick1) do
       create(:absence, event_type: :sick, start_date: Time.zone.today - 6, end_date: Time.zone.today - 1)
     end
     let!(:sick2) do
-      create(:absence, event_type: :sick, start_date: Time.zone.today + 3, end_date: Time.zone.today + 10)
+      create(:absence, event_type: :sick, start_date: Time.zone.today + 8, end_date: Time.zone.today + 10)
     end
 
-    it { expect(Absence.today).to match_array([vacation1, vacation2, vacation3, vacation4]) }
+    it { expect(Absence.week).to match_array([vacation1, vacation2, vacation3, vacation4]) }
   end
 end
