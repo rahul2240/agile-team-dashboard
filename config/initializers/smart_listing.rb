@@ -11,7 +11,7 @@ SmartListing.configure do |config|
     #:paginate                       => true,                        # allow pagination
     #:memorize_per_page              => false,                       # save per page settings in the cookie
     :page_sizes                      => [5],          # set available page sizes array
-    #:kaminari_options               => {:theme => "smart_listing"}, # Kaminari's paginate helper options
+    :kaminari_options               => {:theme => "semantic_ui"}, # Kaminari's paginate helper options
   })
 
   config.constants :classes, {
@@ -41,8 +41,8 @@ SmartListing.configure do |config|
     #:filtering_disabled    => "disabled",
     #:sortable              => "sortable",
     #:icon_new              => "glyphicon glyphicon-plus",
-    #:icon_edit             => "glyphicon glyphicon-pencil",
-    #:icon_trash            => "glyphicon glyphicon-trash",
+    :icon_edit             => "write icon",
+    :icon_trash            => "remove icon",
     #:icon_inactive         => "glyphicon glyphicon-circle",
     #:icon_show             => "glyphicon glyphicon-share-alt",
     #:icon_sort_none        => "glyphicon glyphicon-resize-vertical",

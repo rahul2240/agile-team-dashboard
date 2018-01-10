@@ -8,7 +8,7 @@ class SprintsController < ApplicationController
   helper  SmartListing::Helper
 
   def index
-    self.params = params.permit!
+    self.params = params.permit! # TODO : Rails 5 Strong Parameters removes hash access for unpermitted params
     smart_listing_create :sprints, Sprint.all, partial: 'sprints/listing', default_sort: { number: 'asc' },
                                                sort_attributes: [[:number, 'number'],
                                                                  [:start_date, 'start_date'],
