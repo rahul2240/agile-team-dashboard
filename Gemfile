@@ -16,6 +16,8 @@ gem 'puma'
 gem 'sass-rails'
 gem 'semantic-ui-sass'
 
+gem 'smart_listing'
+
 gem 'coffee-rails'
 gem 'uglifier', '>= 1.3.0'
 
