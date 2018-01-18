@@ -13,10 +13,8 @@ $(document).on "turbolinks:load", ->
     firstDayOfWeek: 1
 
   $('.ui.accordion').accordion()
-  $('.ui.dropdown').dropdown
-    action: 'hide'
 
-  $('select.dropdown').dropdown()
+  $('select.dropdown, .ui.dropdown').dropdown()
 
   $('#calendar').fullCalendar
     firstDay: '1',

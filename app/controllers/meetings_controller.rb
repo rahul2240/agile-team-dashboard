@@ -50,6 +50,7 @@ class MeetingsController < ApplicationController
     params.require(:meeting).permit(
       :name,
       :event_type,
+      :description,
       :location,
       :start_date,
       :end_date,
