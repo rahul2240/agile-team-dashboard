@@ -27,7 +27,7 @@
           = f.input :name
           = f.input :surname
         .three.fields
-          = f.input :birthday, as: :string
+          = f.input :birthday, as: :string, wrapper_html: { class: 'calendar' }
           = f.input :github_login
           .input.field
             = f.label :location
