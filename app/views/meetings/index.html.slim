@@ -3,33 +3,11 @@
     .ui.segment
       h1 Active meetings
       .ui.divided.list
-        - @active_meetings.each do |meeting|
-          .item
-            .content
-              .header
-                = "#{meeting.start_date.strftime("%d-%m-%Y")} #{meeting.event_type} at \
-                   #{meeting.start_date.strftime("%H:%M")} until #{meeting.end_date.strftime("%H:%M")} \
-                   - #{meeting.name} in #{meeting.location}"
-                span.action.right.floated
-                  = link_to edit_meeting_path(meeting) do
-                    i.write.icon
-                  = link_to meeting_path(meeting), method: :delete do
-                    i.remove.icon
+        = smart_listing_render(:active_meetings)
     .ui.segment
       h1 Finished meetings
       .ui.divided.list
-        - @finished_meetings.each do |meeting|
-          .item
-            .content
-              .header
-                = "#{meeting.start_date.strftime("%d-%m-%Y")} #{meeting.event_type} at \
-                   #{meeting.start_date.strftime("%H:%M")} until #{meeting.end_date.strftime("%H:%M")} \
-                   - #{meeting.name} in #{meeting.location}"
-                span.action.right.floated
-                  = link_to edit_meeting_path(meeting) do
-                    i.write.icon
-                  = link_to meeting_path(meeting), method: :delete do
-                    i.remove.icon
+        = smart_listing_render(:finished_meetings)
 
   .eight.wide.column
     .ui.six.wide.column.segment
