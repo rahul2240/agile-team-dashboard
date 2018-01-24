@@ -1,10 +1,12 @@
 # Meetings controller
 class MeetingsController < ApplicationController
   before_action :set_meeting, only: %i[show edit update destroy]
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
 
   def index
-    @active_meetings = Meeting.active
-    @finished_meetings = Meeting.finished
+    @active_meetings = smart_listing_create :active_meetings, Meeting.active, partial: 'meetings/listing'
+    @finished_meetings = smart_listing_create :finished_meetings, Meeting.finished, partial: 'meetings/listing'
     @meeting = Meeting.new
   end
 
@@ -50,6 +52,7 @@ class MeetingsController < ApplicationController
     params.require(:meeting).permit(
       :name,
       :event_type,
+      :description,
       :location,
       :start_date,
       :end_date,
