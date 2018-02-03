@@ -6,4 +6,4 @@ linters:
     max: 120
 
   RuboCop:
-    enabled: false
+    enabled: true
