@@ -3,13 +3,13 @@
     = simple_form_for(@member, url: team_members_path, html: { class: 'ui form' }) do |f|
       = f.input :email, autofocus: true
       .two.fields
-        = f.input :password, autocomplete: "off"
+        = f.input :password, autocomplete: 'off'
         - if @minimum_password_length
           em
             | (
             = @minimum_password_length
             |  characters minimum)
-        = f.input :password_confirmation, autocomplete: "off"
+        = f.input :password_confirmation, autocomplete: 'off'
       .two.fields
         = f.input :name
         = f.input :surname

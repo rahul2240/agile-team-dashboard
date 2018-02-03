@@ -3,7 +3,7 @@
     - smart_listing.collection.each do |absence|
       .item
         .header
-          = "#{absence.start_date.strftime("%d-%m-%Y %H:%M")} until #{absence.end_date.strftime("%d-%m-%Y %H:%M")}"
+          = "#{absence.start_date.strftime('%d-%m-%Y %H:%M')} until #{absence.end_date.strftime('%d-%m-%Y %H:%M')}"
           span.action.right.floated
             = link_to edit_absence_path(absence) do
               i.write.icon

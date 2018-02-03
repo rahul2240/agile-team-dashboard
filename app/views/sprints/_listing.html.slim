@@ -1,16 +1,16 @@
 - unless smart_listing.empty?
   table.ui.celled.table
     thead
-      th.center.aligned = smart_listing.sortable "Number", "number"
-      th.center.aligned = smart_listing.sortable "Start Date", "start_date"
-      th.center.aligned = smart_listing.sortable "End Date", "end_date"
+      th.center.aligned = smart_listing.sortable 'Number', 'number'
+      th.center.aligned = smart_listing.sortable 'Start Date', 'start_date'
+      th.center.aligned = smart_listing.sortable 'End Date', 'end_date'
       th.center.aligned Actions
     tbody
       - smart_listing.collection.each do |sprint|
         tr
           td.center.aligned = sprint.number
-          td.center.aligned = sprint.start_date.strftime("%d-%m-%Y")
-          td.center.aligned = sprint.end_date.strftime("%d-%m-%Y")
+          td.center.aligned = sprint.start_date.strftime('%d-%m-%Y')
+          td.center.aligned = sprint.end_date.strftime('%d-%m-%Y')
           td.right.aligned
             - if sprint.unstarted_sprint?
               = link_to sprint_start_path(sprint) do

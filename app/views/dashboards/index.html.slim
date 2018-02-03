@@ -4,7 +4,7 @@
       - if File.exist?('public/burndown.png')
         .ui.stackable.column.grid
           .column
-            = image_tag "/burndown.png", class: 'ui fluid rounded image'
+            = image_tag '/burndown.png', class: 'ui fluid rounded image'
       .ui.stackable.three.column.grid
         - if @meetings
           .column
@@ -14,7 +14,7 @@
                 .item
                   .content
                     .header
-                      = meeting.start_date.strftime("%H:%M")
+                      = meeting.start_date.strftime('%H:%M')
                       br
                       = "#{meeting.name} in #{meeting.location}"
             .ui.bottom.attached.header
@@ -63,7 +63,7 @@
                     .header
                       = user.name
                     .header
-                      = user.birthday.strftime("%d-%m-%Y")
+                      = user.birthday.strftime('%d-%m-%Y')
             .ui.bottom.attached.header
 
     .column
@@ -72,45 +72,45 @@
           ' Github Pull Requests
           .ui.hidden.divider
           .ui.secondary.menu
-            a.item.active data-tab= "webui"
+            a.item.active data-tab= 'webui'
               .ui.blue.horizontal.label= @pull_requests[:webui].count
               | WebUI
             .ui.flowing.popup.top.left.transition.hidden
-              a href="https://github.com/openSUSE/open-build-service/pulls" target='_blank'
+              a href='https://github.com/openSUSE/open-build-service/pulls' target='_blank'
                 ' open-build-service
-            a.item data-tab= "backend"
+            a.item data-tab= 'backend'
               .ui.teal.horizontal.label= @pull_requests[:backend].count
               ' Backend
             .ui.flowing.popup.top.left.transition.hidden
-              a href="https://github.com/openSUSE/open-build-service/pulls" target='_blank'
+              a href='https://github.com/openSUSE/open-build-service/pulls' target='_blank'
                 ' open-build-service
-            a.item data-tab= "documentation"
+            a.item data-tab= 'documentation'
               .ui.black.horizontal.label= @pull_requests[:documentation].count
               ' Documentation
             .ui.flowing.popup.top.left.transition.hidden
-              a href="https://github.com/openSUSE/obs-docu/pulls" target='_blank'
+              a href='https://github.com/openSUSE/obs-docu/pulls' target='_blank'
                 ' obs-docu
-            a.item data-tab= "landing"
+            a.item data-tab= 'landing'
               .ui.purple.horizontal.label= @pull_requests[:landing].count
               ' Landing
             .ui.flowing.popup.top.left.transition.hidden
-              a href="https://github.com/openSUSE/obs-landing/pulls" target='_blank'
+              a href='https://github.com/openSUSE/obs-landing/pulls' target='_blank'
                 ' obs-landing
-            a.item data-tab= "dashboard"
+            a.item data-tab= 'dashboard'
               .ui.olive.horizontal.label= @pull_requests[:dashboard].count
               ' Dashboard
             .ui.flowing.popup.top.left.transition.hidden
-              a href="https://github.com/openSUSE/agile-team-dashboard/pulls" target='_blank'
+              a href='https://github.com/openSUSE/agile-team-dashboard/pulls' target='_blank'
                 ' agile-team-dashboard
-        .ui.bottom.relaxed.divided.list.attached.tab.segment.active.pull_requests data-tab= "webui"
+        .ui.bottom.relaxed.divided.list.attached.tab.segment.active.pull_requests data-tab= 'webui'
           = render partial: 'pull_requests', locals: { pull_requests: @pull_requests[:webui] }
-        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= "backend"
+        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= 'backend'
           = render partial: 'pull_requests', locals: { pull_requests: @pull_requests[:backend] }
-        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= "documentation"
+        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= 'documentation'
           = render partial: 'pull_requests', locals: { pull_requests: @pull_requests[:documentation] }
-        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= "landing"
+        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= 'landing'
           = render partial: 'pull_requests', locals: { pull_requests: @pull_requests[:landing] }
-        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= "dashboard"
+        .ui.bottom.relaxed.divided.list.attached.tab.segment.pull_requests data-tab= 'dashboard'
           = render partial: 'pull_requests', locals: { pull_requests: @pull_requests[:dashboard] }
         .ui.bottom.attached.header
 javascript:

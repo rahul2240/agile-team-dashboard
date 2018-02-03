@@ -13,7 +13,7 @@
           | (
           = @minimum_password_length
           |  characters minimum)
-      = f.input :password_confirmation, autocomplete: "off"
+      = f.input :password_confirmation, autocomplete: 'off'
       .actions
         = f.submit 'Sign up', class: 'ui button'
-  = render "users/shared/links"
+  = render 'users/shared/links'

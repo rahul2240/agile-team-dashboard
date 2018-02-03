@@ -6,12 +6,12 @@
       url: session_path(resource_name),
       html: { class: 'ui form' }) do |f|
       = f.input :email, autofocus: true
-      = f.input :password, autocomplete: "off"
+      = f.input :password, autocomplete: 'off'
       - if devise_mapping.rememberable?
         .field
           .ui.checkbox
             = f.check_box :remember_me
             = f.label :remember_me
       .actions
-        = f.submit "Log in", class: 'ui button'
+        = f.submit 'Log in', class: 'ui button'
       = render partial: 'users/shared/links'
