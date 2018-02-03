@@ -1,4 +1,4 @@
-- unless smart_listing.empty?
+- if smart_listing.present?
   table.ui.celled.table
     thead
       th.center.aligned = smart_listing.sortable 'Number', 'number'
