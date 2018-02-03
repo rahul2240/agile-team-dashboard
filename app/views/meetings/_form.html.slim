@@ -1,6 +1,6 @@
-= simple_form_for(@meeting, html: { class: 'ui form'}) do |f|
+= simple_form_for(@meeting, html: { class: 'ui form' }) do |f|
   .three.fields
-    = f.input :sprint_id, collection: Sprint.all.map { |x| [x.number, x.id]}, input_html: { class: 'ui fluid dropdown' }
+    = f.input :sprint_id, collection: Sprint.all.map { |x| [x.number, x.id] }, input_html: { class: 'ui fluid dropdown' }
     = f.input :name, as: :string
     = f.input :event_type, collection: Meeting::TYPES, input_html: { class: 'ui fluid dropdown' }
   .three.fields
