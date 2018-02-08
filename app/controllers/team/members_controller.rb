@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Team
   class MembersController < ApplicationController
     before_action :set_member, only: %i[show edit update destroy]

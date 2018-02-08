@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Absence < Event
   validates :start_date, :end_date, :event_type, presence: true
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Absence controller
 class AbsencesController < ApplicationController
   before_action :set_absence, only: %i[show edit update destroy]

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Meetings controller
 class MeetingsController < ApplicationController
   before_action :set_meeting, only: %i[show edit update destroy]

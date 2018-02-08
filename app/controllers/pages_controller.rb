@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PagesController < ApplicationController
   PAGES = { build_solutions_team: 'Team Info' }.freeze
 

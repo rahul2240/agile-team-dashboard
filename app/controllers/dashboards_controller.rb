@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Dashboards controller
 class DashboardsController < ApplicationController
   def index

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :meeting do
     start_date '2017-02-21 10:00'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMeetings
   def self.run(sprint)
     create_plannings(sprint.start_date, sprint)

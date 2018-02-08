@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def new_link_to(resource, text = 'new')
     url = url_for(action: :new, controller: resource)

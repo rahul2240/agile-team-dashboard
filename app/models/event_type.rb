@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventType < ActiveHash::Base
   include ActiveHash::Associations
   has_many :events

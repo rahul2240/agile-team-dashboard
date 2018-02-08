@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Calendar Controller
 class CalendarsController < ApplicationController
   def index
